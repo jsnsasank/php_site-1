@@ -11,7 +11,7 @@
 
 <body>
   <div id="main">
-    <?php require 'header.php' ;?>
+    <?php include 'header.php' ;?>
     <div id="content_header"></div>
     <div id="site_content">
      <?php include "sidebar.php" ;?>

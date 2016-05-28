@@ -1,4 +1,4 @@
  <div id="footer">
-      <p><a href="index.php">Home</a> | <a href="examples.html">Examples</a> | <a href="page.php">A Page</a> | <a href="another_page.php">Another Page</a> | <a href="contact.php">Contact Us</a></p>
-      <p>Copyright &copy; Anil Kumar Goud | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a></p>
-    </div>
+      <p><a href="index.php">Home</a> | <a href="gallery.php">Gallery</a> | <a href="register.php">Register</a> | <a href="sitemap.php">Site map</a> | <a href="contact.php">Contact Us</a></p>
+      <p>Copyright &copy; Anil Kumar Goud | <a href="https://www.ucmo.edu">UCMO</a> | <a href="https://www.ucmo.edu/cis/degrees/msit_info.cfm">CIS Department</a> | <a href="http://cis.ucmo.edu/henson/5690">CIS 5690</a></p>
+   </div>
