@@ -10,6 +10,21 @@
           </div>
           <div class="sidebar_base"></div>
         </div>
+        
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+            <h3><font color='green'><strong>Click Below to Contribute</strong></font></h3>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+ <!-- <input type="hidden" name="cmd" value="_s-xclick"> -->
+<!-- <input type="hidden" name="hosted_button_id" value="6931780"> -->
+<input type="image" src="style/Donate.png" border="0" name="submit" alt="Secured payment gateway">
+</form> 
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        
         <div class="sidebar">
           <div class="sidebar_top"></div>
           <div class="sidebar_item">

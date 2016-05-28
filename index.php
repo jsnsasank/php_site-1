@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
   <div id="main">
    <?php include "header.php" ;?>
 	<div id="content_header"></div>
@@ -17,12 +18,13 @@
 	   <?php include "sidebar.php" ;?>
       <div id="content">
         <!-- insert the page content here -->
-        <h1>Welcome to the simplestyle_banner template</h1>
-        <p>This standards compliant, simple, fixed width website template is released as an 'open source' design (under a <a href="http://creativecommons.org/licenses/by/3.0">Creative Commons Attribution 3.0 Licence</a>), which means that you are free to download and use it for anything you want (including modifying and amending it). All I ask is that you leave the 'design from HTML5webtemplates.co.uk' link in the footer of the template, but other than that...</p>
-        <p>This template is written entirely in <strong>HTML5</strong> and <strong>CSS</strong>, and can be validated using the links in the footer.</p>
-        <p>You can view more free HTML5 web templates <a href="http://www.html5webtemplates.co.uk">here</a>.</p>
-        <p>This template is a fully functional 5 page website, with an <a href="examples.html">examples</a> page that gives examples of all the styles available with this design.</p>
-        <h2>Browser Compatibility</h2>
+        <h1>Welcome to the Planet Tree System</h1>
+        <p>“PlanetTree” is a non-profit organization which promotes the planting of trees throughout the region. Currently serving Missouri, the organization looks forward to nationwide expansion. PlanetTree
+works with municipal governments, state agencies and, in some cases, private land owners to place
+trees. All trees are funded through donations and are planted by volunteers</p>
+       
+        <h2>Learn About more PlantTree <a href="AboutPlanetTree.php">..more</a>.</h2>
+         <h2>Browser Compatibility</h2>
         <p>This template has been tested in the following browsers:</p>
         <ul>
           <li>Internet Explorer 9</li>
