@@ -14,17 +14,29 @@
         <div class="sidebar">
           <div class="sidebar_top"></div>
           <div class="sidebar_item">
-            <!-- insert your sidebar items here -->
+            <!-- insert sidebar items here -->
             <h3><font color='green'><strong>Click Below to Contribute</strong></font></h3>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
- <!-- <input type="hidden" name="cmd" value="_s-xclick"> -->
-<!-- <input type="hidden" name="hosted_button_id" value="6931780"> -->
+<form action="donate.php" method="post">
 <input type="image" src="style/Donate.png" border="0" name="submit" alt="Secured payment gateway">
 </form> 
           </div>
           <div class="sidebar_base"></div>
         </div>
         
+		 <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Search Plant</h3>
+            <form method="post" action="#" id="search_form">
+              <p>
+                <input class="search" type="text" name="search_field" placeholder="Enter Tree identifier...." />
+                <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+              </p>
+            </form>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+		
         <div class="sidebar">
           <div class="sidebar_top"></div>
           <div class="sidebar_item">
@@ -38,17 +50,5 @@
           </div>
           <div class="sidebar_base"></div>
         </div>
-        <div class="sidebar">
-          <div class="sidebar_top"></div>
-          <div class="sidebar_item">
-            <h3>Search</h3>
-            <form method="post" action="#" id="search_form">
-              <p>
-                <input class="search" type="text" name="search_field" value="Enter keywords....." />
-                <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
-              </p>
-            </form>
-          </div>
-          <div class="sidebar_base"></div>
-        </div>
+       
       </div>
