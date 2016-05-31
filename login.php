@@ -7,6 +7,7 @@
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <script type="text/javascript" src="scripts/login.js"></script>
 </head>
 
 <body>
@@ -16,19 +17,32 @@
     <div id="site_content">
      <?php include "sidebar.php" ;?>
       <div id="content">
-        <!-- insert the page content here -->
-        <table>
+<br>
+       <fieldset>
         <h1>Login</h1>
         <p>Please enter your username and password</p>       
-          <div class="form_settings">
-        <tr>    <p><span>Username</span><input class="username" type="text" name="username" value="" /></p></tr>
-         <tr>   <p><span>Password</span><input class="password" type="password" name="password" value="" /></p></tr>
-        <tr>    <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="reset" name="login_reset" value="Reset" />
-          <span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Submit" /></p>
-          </tr>
-          </div>       
+       <form class="anil-form  anil-form-aligned">
+              
+
+               <div class="pure-control-group">
+            <label for="username"><strong>Username* : </strong></label>
+            <input id="username" type="text" placeholder="Username">
+        </div> <br>
+                <div class="pure-control-group">
+            <label for="password"><strong>Password* : </strong></label>
+            <input id="password" type="text" placeholder="Password">
+        </div>
+      <br>
+        <div class="pure-controls">
+        	<button type="reset" class="anil-button anil-button-primary">Reset</button>
+            <button type="submit" class="anil-button anil-button-primary">Submit</button>
+            
+        </div><br>
+    </fieldset>
+   
+   </form> 
         <p><br /><br />NOTE: A contact form such as this would require some way of emailing the input to an email address.</p>
-     </table>
+     
       </div>
     </div>
     <div id="content_footer"></div>
