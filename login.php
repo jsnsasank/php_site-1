@@ -18,13 +18,11 @@
      <?php include "sidebar.php" ;?>
       <div id="content">
 <br>
+  <form class="anil-form  anil-form-aligned" method="POST">
        <fieldset>
         <h1>Login</h1>
         <p>Please enter your username and password</p>       
-       <form class="anil-form  anil-form-aligned">
-              
-
-               <div class="pure-control-group">
+       <div class="pure-control-group">
             <label for="username"><strong>Username* : </strong></label>
             <input id="username" type="text" placeholder="Username">
         </div> <br>
@@ -39,8 +37,7 @@
             
         </div><br>
     </fieldset>
-   
-   </form> 
+     </form> 
         <p><br /><br />NOTE: A contact form such as this would require some way of emailing the input to an email address.</p>
      
       </div>

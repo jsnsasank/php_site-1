@@ -18,11 +18,11 @@
         <h1>Make A Contribution</h1>
 		<h5 id="Addr_result"></h5>
 		 <h4>Please Enter your name and Billing Address</h4>
-        <form method="POST" action="processPayment.php" class="anil-form  anil-form-aligned">
+        <form method="POST" action="processPayment.php" class="anil-form  anil-form-aligned" onsubmit = "return validate(this)">
        <fieldset>
         <div class="pure-control-group">
             <label for="name">Contributor Name : </label>
-            <input id="name" name="name" type="text" placeholder="Name" required>
+            <input id="cust_name" name="name" type="text" placeholder="Name" required>
         </div>
 
         <div class="pure-control-group">

@@ -27,16 +27,16 @@ if($_POST["cbRM"] > 0 ){
   $rm_plants = $_POST["cbRM"];
 }
 if($_POST["cbSM"] > 0 ){
-  $sm_plants = $_POST["cbRM"];
+  $sm_plants = $_POST["cbSM"];
 }
 if($_POST["cbRB"] > 0 ){
-  $rb_plants = $_POST["cbRM"];
+  $rb_plants = $_POST["cbRB"];
 }
 if($_POST["cbCT"] > 0 ){
-  $ct_plants = $_POST["cbRM"];
+  $ct_plants = $_POST["cbCT"];
 }
 
-$amount = (($rm_plants * RM_PRICE) + ($sm_plants * SM_PRICE) + ($rb_plants * RB_PRICE));
+$amount = (($rm_plants * RM_PRICE) + ($sm_plants * SM_PRICE) + ($rb_plants * RB_PRICE) + ($ct_plants * CT_PRICE));
 	
 }
 function test_input($data) {
@@ -53,6 +53,7 @@ function test_input($data) {
 <head>
   <title>Planet Trees</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script type="text/javascript" src="scripts/creditcard.js"> </script> 
 </head>
 
 <body>
@@ -63,7 +64,9 @@ function test_input($data) {
       <?php include "sidebar.php" ;?>
       <div id="content">
 	
-	  <?php echo "<h2>" . $name . " - Contribution</h2>"; 
+	  <?php
+	  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])){
+	  echo "<h2>" . $name . " - Contribution</h2>"; 
 	  echo "<table style='width:100%; border-spacing:0;'>";
 	  echo "<tr><th>Contributed Plant</th><th>Price</th><th>No.f Trees</th></tr>";
 	  if($rm_plants > 0){ 
@@ -83,47 +86,48 @@ function test_input($data) {
 	 echo "</table>";
 	  	    		
 	?>
-	<form method="POST" action="processPayment.php" class="anil-form  anil-form-stacked">
-       <fieldset>
-	    <legend>Enter credit card details</legend>
-        <div class="pure-control-group">
-            <label for="name">Contributor Name : </label>form
-            <input id="name" name="name" type="text" placeholder="Name" required>
-        </div>
-
-        <div class="pure-control-group">
-            <label for="Address">Address Line1 : </label>
-            <input id="addrline1" name="addr1" type="text" placeholder="Street" required>
-        </div>
-		
-		<div class="pure-control-group">
-            <label for="Address">Address Line2 : </label>
-            <input id="addrlin2" name="addr2" type="text" placeholder="Apt num">
-        </div>
-		
-		<div class="pure-control-group">
-            <label for="City">City : </label>
-            <input id="city" name="city" type="text" placeholder="City" required>
-        </div>
-		
-		<div class="pure-control-group">
-            <label for="state">State : </label>
-            <input id="state" name="state" type="text" placeholder="State" required>
-        </div>
-		
-		<div class="pure-control-group">
-            <label for="country">Country : </label>
-            <input id="country" name="country" type="text" placeholder="Country" required>
-        </div>
-      	 
-	  <button id="payment" name="submit" type="submit" class="anil-button anil-button-primary">Proceed to Payment</button>
-	  </fieldset>
-	  </form>
-	  
+	 <h2>Payment Details</h2>
+	<h4> Billing Address :</h4>
+    <?php echo $name ."<br>" . $addr1 . "<br>". $city.", " . $zip. "<br>". $state.", ".$country. "<br>" ?>
+    <br />
+    <h5 id="ccerror"> </h5>
+	<form action="#" onsubmit = "return checkCreditCard()">
+	<p>
+      <input id="ccname" type="text" class="checkout-input checkout-name" placeholder="Your name" autofocus>
+      <select id="ccmm" name="month" class="checkout-input checkout-exp"> 
+      <option value="" disabled selected>MM</option>
+     <?php
+     for ($i = 1; $i <= 12; ++$i) {
+     printf('<option value="%02s">%02s</option>',$i,$i);
+  	 }
+     ?>
+     </select>
+      <select id="ccyy" name="year" class="checkout-input checkout-exp">
+      <option value="" disabled selected>YY</option>
+      <?php
+     for ($i = 17; $i <= 30; ++$i) {
+     printf('<option value="%02s">%02s</option>',$i,$i);
+  	 }
+     ?>
+     </select>
+    </p><br />
+	<p>
+      <input id="ccnnum" type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+      <input id="cc_cvc" type="text" class="checkout-input checkout-cvc" placeholder="CVC">
+    </p>
+    <br />
+    
+      <input id="ccpay" type="submit" value="Purchase" class="anil-button anil-button-primary">
+    </form>
+    
+	  <?php }else{
+	    echo "<h1>Please check our make donation page.</h1>";  	
+	  } ?>
 	</div>
     </div>
     <div id="content_footer"></div>
-    <?php include "footer.php" ;?>
+    
+    <?php  include "footer.php" ;?>
   </div>
 </body>
 </html>

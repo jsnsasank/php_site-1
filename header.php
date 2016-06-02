@@ -1,4 +1,4 @@
-<script "text/javascript">
+<script type="text/javascript">
 function dynamicClass() {
 	var path = window.location.pathname;
 	var page = path.split("/").pop();
