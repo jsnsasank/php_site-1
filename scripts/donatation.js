@@ -50,9 +50,9 @@ if(!validName(name)){
   return false;
  }
 
-var zipexp = /^[0-9]{4,6}$/;
+var zipexp = /^[0-9]{5}$/;
 if(!zipexp.exec(zip)){
-  document.getElementById("Addr_result").innerHTML = "<span style='color:red'>Invalid ZIP code</span>";
+  document.getElementById("Addr_result").innerHTML = "<span style='color:red'>Invalid ZIP code.Enter 5 digit zip code.</span>";
   return false;
  }
 
@@ -99,7 +99,7 @@ function calAmount(){
 }
 
  function validName(name){
-  var re = /^[a-zA-z]+$/;
+  var re = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   return re.test(name);
  }
 

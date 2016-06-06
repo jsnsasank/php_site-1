@@ -64,19 +64,19 @@
 		 <h4>Please select the plant type with quantity</h4>
 		 <div class="pure-control-group">
 		   <label for="cbRM">Red Maple ($50) : </label>
-			 <input id="cbRM" name="cbRM" type="number" min="1"> 
+			 <input id="cbRM" name="cbRM" type="number" autocomplete="off"  min="1"> 
 		  </div>
 		  <div class="pure-control-group">
 		   <label for="cbSM">Sugar Maple ($65) : </label>
-			 <input id="cbSM" name="cbSM" type="number" min="1"> 
+			 <input id="cbSM" name="cbSM" type="number" autocomplete="off"  min="1"> 
 		  </div>
 		  <div class="pure-control-group">
 		   <label for="cbRB">River Birch ($25) : </label>
-			 <input id="cbRB" name="cbRB" type="number" min="1"> 
+			 <input id="cbRB" name="cbRB" type="number" autocomplete="off"  min="1"> 
 		  </div>
 		  <div class="pure-control-group">
 		   <label for="cbCT">Catalpa ($35) : </label>
-			 <input id="cbCT" name="cbCT" type="number" min="1"> 
+			 <input id="cbCT" name="cbCT" type="number" autocomplete="off"  min="1"> 
 		  </div>
 		 
 	  <button id="payment" name="submit" type="submit" class="anil-button anil-button-primary">Proceed to Payment</button>

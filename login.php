@@ -1,13 +1,8 @@
-<!DOCTYPE HTML>
 <html>
-
 <head>
   <title>login page</title>
-  <meta name="description" content="website description" />
-  <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   <link rel="stylesheet" type="text/css" href="style/style.css" />
-    <script type="text/javascript" src="scripts/login.js"></script>
+    <script type="text/javascript" src="scripts/login_validation.js"></script>
 </head>
 
 <body>
@@ -17,25 +12,29 @@
     <div id="site_content">
      <?php include "sidebar.php" ;?>
       <div id="content">
+      <h5 id="login_valid"></h5>
 <br>
-  <form class="anil-form  anil-form-aligned" method="POST">
+  <form method="POST" id="login" name="login_page" class="anil-form  anil-form-aligned" onsubmit="return login_validate(this)">
        <fieldset>
         <h1>Login</h1>
         <p>Please enter your username and password</p>       
        <div class="pure-control-group">
             <label for="username"><strong>Username* : </strong></label>
-            <input id="username" type="text" placeholder="Username">
+          <span id="uerror">  <input id="username" name="username" type="text" placeholder="Username"> </span>
+            <span id="erruserid" class="loginerror"> Please enter the username</span>
         </div> <br>
                 <div class="pure-control-group">
             <label for="password"><strong>Password* : </strong></label>
-            <input id="password" type="text" placeholder="Password">
+            <input id="password" name="password" type="password" placeholder="Password">
+            <span id="errpass" class="loginerror"> Please enter the password</span>
         </div>
       <br>
         <div class="pure-controls">
         	<button type="reset" class="anil-button anil-button-primary">Reset</button>
-            <button type="submit" class="anil-button anil-button-primary">Submit</button>
-            
+
+           <button type="submit" class="anil-button anil-button-primary">Submit</button>
         </div><br>
+
     </fieldset>
      </form> 
         <p><br /><br />NOTE: A contact form such as this would require some way of emailing the input to an email address.</p>

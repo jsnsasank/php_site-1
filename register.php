@@ -4,6 +4,7 @@
 <head>
   <title>PlanetTrees - Register</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
+ <script type="text/javascript" src="scripts/register_validation.js"></script>
 </head>
 
 <body>
@@ -17,62 +18,59 @@
         <h1>Join Planet Trees</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p>
    
+<h5 id="register_valid"> </h5><br>
 
-
-	<form class="anil-form  anil-form-aligned">
+	<form class="anil-form  anil-form-aligned" onsubmit="return register_validate(this)">
        <fieldset>
                <div class="pure-control-group">
             <label for="username">Username* : </label>
-            <input id="username" type="text" placeholder="Username">
+            <input id="username" type="text" placeholder="Username" required>
         </div>
                 <div class="pure-control-group">
             <label for="password">Password* : </label>
-            <input id="password" type="text" placeholder="Password">
+            <input id="password" type="text" placeholder="Password" required>
         </div>
         <div class="pure-control-group">
-            <label for="name">First Name* : </label>
-            <input id="fname" type="text" placeholder="First Name">
+            <label for="name">Name* : </label>
+            <input id="name" type="text" placeholder="First Name" required>
         </div>
-        <div class="pure-control-group">
-            <label for="name">Last Name* : </label>
-            <input id="lname" type="text" placeholder="Last Name">
-        </div>
-                <div class="pure-control-group">
-            <label for="dob">Date of Birth* : </label>
+          <!--      <div class="pure-control-group">
+            <label for="dob">Date of Birth : </label>
             <input id="dob" type="text" placeholder="Date of Birth">
-        </div>
+       
+        </div> -->
          <div class="pure-control-group">
             <label for="phone">Phone* : </label>
-            <input id="phone" type="text" placeholder="Phone">
+            <input id="phone" type="text" placeholder="Phone" required>
         </div>
 
         <div class="pure-control-group">
-            <label for="Address">Address Line1 : </label>
+            <label for="Address">Address Line : </label>
             <input id="addrlin1" type="text" placeholder="Street">
         </div>
-		
+		<!--
 		<div class="pure-control-group">
             <label for="Address">Address Line2 : </label>
             <input id="addrlin2" type="text" placeholder="Apt num">
         </div>
-		
+		-->
 		<div class="pure-control-group">
-            <label for="City">City : </label>
-            <input id="city" type="text" placeholder="City">
+            <label for="City">City* : </label>
+            <input id="city" type="text" placeholder="City" required>
         </div>
 		
 		<div class="pure-control-group">
-            <label for="state">State : </label>
-            <input id="state" type="text" placeholder="State">
+            <label for="state">State* : </label>
+            <input id="state" type="text" placeholder="State" required>
         </div>
 		
 		<div class="pure-control-group">
-            <label for="country">City : </label>
+            <label for="country">Country* :</label>
             <input id="country" type="text" placeholder="Country">
         </div>
         	<div class="pure-control-group">
-            <label for="zip">Zip Code : </label>
-            <input id="zip" type="text" placeholder="Zip Code">
+            <label for="zip">Zip Code* : </label>
+            <input id="zip" type="text" placeholder="Zip Code" required>
         </div>
 
         <div class="pure-control-group">
@@ -89,6 +87,7 @@
             <button type="submit" class="anil-button anil-button-primary">Submit</button>
             
         </div>
+   <br> <div class="pure-control-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already member?<a href="login.php"><strong> Login here</strong></a></div>
     </fieldset>
    </form>
    		</div>
