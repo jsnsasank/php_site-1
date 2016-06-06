@@ -6,7 +6,7 @@ $cart 	= 	$_POST['js_cart'];
 $name 	= 	test($_POST['name']);
 $last4 	= 	test($_POST['last4']);
 $addr 	= 	test($_POST['addr']);
-$date 	= 	date("Y-m-d H:i:s");
+$date 	= 	date("Y-m-d-H-i-s");
 $amount = 	$cart['total'];
 $RSPCODE = array();
 unset($cart['total']);

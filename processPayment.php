@@ -142,16 +142,16 @@ function test_input($data) {
     <!--  </form> -->
     <p class="showprogress" id="paymentinprogress">
      </p>
-     <div>
-       <p class="showprogress" id="confirmationpage">
-     </p>
-     </div>
-   
-    
+           
 	  <?php }else{
 	    echo "<h1>Please check our make donation page.</h1>";  	
 	  } ?>
-	   
+	   <p class="showprogress" id="confirmationpage">
+     </p> 
+	   <div id="treeids">
+     
+     </div>
+	
 	</div>
     </div>
     <div id="content_footer"></div>

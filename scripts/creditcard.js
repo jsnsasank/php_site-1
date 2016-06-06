@@ -97,7 +97,7 @@ if(!yyexp.exec(ccyy)){
 }
 // The payment validation done in Jquery to reduce the no.of lines..
 e.preventDefault();
-
+$('#ccpay').attr('disabled','disabled');
 var container = $('#paymentinprogress');
 var container2 = $('#confirmationpage');
 $(container).html( "<img src='style/loader.gif'>");
@@ -140,6 +140,7 @@ function updatePayment(){
 	var last4 = dbcc.substring(dbcc.length - 4);
 	var dbaddr = cc_addr + "\n" + cc_zip;
 	var output = " ";
+	var result = $('#treeids');
 	//Generate Tree identifiers for each tree
 	$.ajax({
 		  url : 'scripts/addDonations.php',
@@ -149,10 +150,12 @@ function updatePayment(){
 			  $.each(json, function(i, item){
 				  console.log("Data : "+item);
 			     if(item != "DB_ERROR"){
-			    	 output += item + "<br>";
+			    	 output += "<p>"+item + "</p>";
 			     }
 			  }) // end $.each loop;
-			  $(container2).html( "<h3>Your details are updated in database.Please notedown your tree identifiers</h3>"+output);
+			  output += "<h2>Thank You.</h2>"
+			  $(container2).html("<p></p>");
+			  $(result).html( "<h4>Please note down your tree identifiers for tracking</h4>"+output+"<br>");
 			},
 		  error: function(xhr,desc,err){
 			  console.log("failed with error : " + xhr + "\n"+err);
