@@ -1,4 +1,4 @@
-  <div id="sidebar_container">
+<div id="sidebar_container">
         <div class="sidebar">
           <div class="sidebar_top"></div>
           <div class="sidebar_item">
@@ -6,14 +6,14 @@
             <h3>UpComing Events</h3>
             <h4>New Website Launched</h4>
             <h5>June 6th, 2016</h5>
-            <marquee direction="up" width="250" height="200" scrollamount="3">
-<ul>
-<li>Friday, June 10 • 09:00 AM<br/>
+            <marquee direction="up" width="250" height="200" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start()">
+<ul id="up_events">
+<li>Friday, June 10 09:00 AM<br/>
 Planting Trees at Lee's Summit<br>
- Campus</li><br><br>
-<li>Thursday, July 5 • 05:30 PM<br />
+ Campus</li><br/><br/>
+<li>Thursday, July 5 05:30 PM<br />
 Nature Awareness Program</li><br><br>
-<li>Saturday, July 15 • 09:00 AM<br />
+<li>Saturday, July 15  09:00 AM<br />
 Tree Planting for a <br />
 Climate-Ready Future </li><br><br>
 <li>Friday, April 17 12:00 AM<br />
@@ -32,7 +32,7 @@ Grand Finale Tree Planting</li><br><br>
             <!-- insert sidebar items here -->
             <h3><font color='green'><strong>Click Below to Contribute</strong></font></h3>
 <form action="donate.php" method="post">
- <input type="image" src="style/Donate.png" border="0" name="submit" alt="Secured payment gateway">
+ <input type="image" src="style/Donate.png"  name="submit" alt="Secured payment gateway">
 </form> 
           </div>
           <div class="sidebar_base"></div>
@@ -65,5 +65,5 @@ Grand Finale Tree Planting</li><br><br>
           </div>
           <div class="sidebar_base"></div>
         </div>
-       
-      </div>
+     </div>
+     

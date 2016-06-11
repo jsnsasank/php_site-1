@@ -97,7 +97,6 @@ if(!yyexp.exec(ccyy)){
 }
 // The payment validation done in Jquery to reduce the no.of lines..
 e.preventDefault();
-$('#ccpay').attr('disabled','disabled');
 var container = $('#paymentinprogress');
 var container2 = $('#confirmationpage');
 $(container).html( "<img src='style/loader.gif'>");
@@ -113,6 +112,7 @@ $.ajax({
 	  $.each(json, function(i, item){
 		  console.log("Data : "+item);
 	     if(item == 987654){
+	    	 $('#ccpay').attr('disabled','disabled');
 	    	 $(container).html("<h3>Your payment has been approved.<br>Please wait while we update your details.<?php $PAYMENT='APPROVED'?></h3>");
 	    	 $(container2).html( "<img src='style/loader.gif'>");
 	    	 setTimeout(function() { updatePayment(); }, 2000);
@@ -147,15 +147,18 @@ function updatePayment(){
 		  type: 'post',
 		  data: {'js_cart': js_cart, 'name': dbname, 'last4': last4, 'addr':dbaddr},
 		  success: function(json){
+			  var tid = json.pop();
+			  console.log(json);
 			  $.each(json, function(i, item){
-				  console.log("Data : "+item);
-			     if(item != "DB_ERROR"){
-			    	 output += "<p>"+item + "</p>";
+				  if(item != "DB_ERROR"){
+			    	 output += "<li>"+item + "</li>";
+			     }else {
+			    	 $(result).html( "<h4>Database update failed, Please contact our administrator</h4"); 
 			     }
 			  }) // end $.each loop;
 			  output += "<h2>Thank You.</h2>"
-			  $(container2).html("<p></p>");
-			  $(result).html( "<h4>Please note down your tree identifiers for tracking</h4>"+output+"<br>");
+			  $(container2).html("<p>Transcation ID : "+ tid+ "</p>");
+			  $(result).html( "<h4>Please note down your tree identifiers for tracking</h4><ul>"+output+"</ul>");
 			},
 		  error: function(xhr,desc,err){
 			  console.log("failed with error : " + xhr + "\n"+err);

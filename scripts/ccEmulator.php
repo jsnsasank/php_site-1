@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 # This script acts as credit card emulator.
 # validate the given details and retunr a code back to the ajax caller;
 # 

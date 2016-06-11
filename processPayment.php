@@ -1,6 +1,5 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])){
- session_start();
  require ("scripts/DBcontrol.php");
   
 $sql = "select * from donations";
@@ -21,7 +20,7 @@ define('RM_PRICE', 50);
 define('SM_PRICE', 65);
 define('RB_PRICE', 25);
 define('CT_PRICE', 35);
-$_SESSION["username"] = $name;
+#$_SESSION["username"] = $name;
 $cart = array();
 $rm_plants = $sm_plants = $rb_plants = $ct_plants = 0;
 if($_POST["cbRM"] > 0 ){

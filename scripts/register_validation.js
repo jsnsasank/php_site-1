@@ -3,7 +3,7 @@
 // validating registration form fields
 // Author: Anil Goud
 
-alert('in regist_validations.js');
+
 var user_name="";
 var password="";
 var name="";

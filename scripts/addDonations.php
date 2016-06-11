@@ -2,13 +2,13 @@
 header("content-type:application/json");
 require 'DBcontrol.php';
 
-$cart 	= 	$_POST['js_cart'];
-$name 	= 	test($_POST['name']);
-$last4 	= 	test($_POST['last4']);
-$addr 	= 	test($_POST['addr']);
-$date 	= 	date("Y-m-d-H-i-s");
-$amount = 	$cart['total'];
-$RSPCODE = array();
+$cart 		= 	$_POST['js_cart'];
+$name 		= 	test($_POST['name']);
+$last4 		= 	test($_POST['last4']);
+$addr 		= 	test($_POST['addr']);
+$date 		= 	date("Y-m-d-H-i-s");
+$amount 	= 	$cart['total'];
+$RSPCODE 	= 	array();
 unset($cart['total']);
 
 #echo json_encode($cart['total']);
@@ -41,6 +41,7 @@ foreach ($cart as $tree => $count){
 		}
 	}
 }
+$RSPCODE[] = $transcation;
 echo json_encode($RSPCODE);
 }else{
  echo "DB_ERROR";
@@ -65,7 +66,7 @@ function myrand($digits = 6){
 
 # Generate a 6 digit Alpha Numeric random string 
 function transID($length = 6) {
-	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$charactersLength = strlen($characters);
 	$randomString = '';
 	for ($i = 0; $i < $length; $i++) {

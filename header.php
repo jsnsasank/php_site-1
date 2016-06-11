@@ -29,17 +29,25 @@ window.addEventListener("load",dynamicClass,false);
  <div id="header">
       <div id="logo">
 	    <div id="logo_text">
-		 <!-- class="logo_colour", allows you to change the colour of the text -->
+			 <!-- class="logo_colour", allows you to change the colour of the text -->
           <h1><a href="index.php">Planet<span class="logo_colour">Trees</span></a></h1>
           <h2>Plant Trees. Change lives.</h2>
 		</div>
  	 </div>
+	  	  	  <?php 
+	  if(!empty($_SESSION["username"])){
+	  	echo "<div class='dropdown' style='float: right;margin-right: 20px;'>
+			<button  class='loggedinbutton'>"."Hi, ". $_SESSION['username'] . "</button>
+			<div class='dropdown-content'>
+			<a href='UserDashBoard.php'>My Dashboard</a>
+			<a href='#'>Edit My profile</a>
+			<a href='logout.php'>Logout</a>
+		</div>
+			</div>";
+	  }
 	  
-	  <?php if(!empty($_SESSION["username"])){
-		   echo "<h6 class='userloggedin'>" . $_SESSION['username']."</h6>";
-		  }
 	  ?>
-	        <div id="menubar">
+	     <div id="menubar">
         <ul id="menu">
 		 <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li id="indexpage"> <a href="index.php">Home</a> </li>
@@ -50,7 +58,8 @@ window.addEventListener("load",dynamicClass,false);
 		  <li id="login_page"><a href="login.php">Login</a></li>
 		  
         </ul>
-		
       </div>
+      
 	  
     </div>
+      
