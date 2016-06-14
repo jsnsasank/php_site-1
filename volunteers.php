@@ -17,7 +17,7 @@ session_start();
       <?php include "sidebar.php" ;?>
       <div id="content">
         <!-- insert the page content here -->
-        <h1>Examples</h1>
+        <h1>Volunteer</h1>
         <p>This page contains examples of all the styled elements available as part of this design. Use this page for reference, whilst you build your website.</p>
         <h2>Headings</h2>
         <p>These are the different heading formats:</p>

@@ -72,7 +72,7 @@ if(isset($_SESSION['id'])){
 
     </fieldset>
      </form> 
-        <p><br /><br />Not Registred yet ? Please register here.</p>
+        <p><br /><br />Not Registred yet ? Please <a href="register.php"> register here.</a></p>
      
       </div>
     </div>

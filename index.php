@@ -22,7 +22,7 @@ session_start();
       <div id="content">
         <!-- insert the page content here -->
         <h1>Welcome to the Planet Tree System</h1>
-        <p> is a non-profit organization which promotes the planting of trees throughout the region. Currently serving Missouri, the organization looks forward to nationwide expansion. PlanetTree
+        <p> Planet Trees is a non-profit organization which promotes the planting of trees throughout the region. Currently serving Missouri, the organization looks forward to nationwide expansion. PlanetTree
 works with municipal governments, state agencies and, in some cases, private land owners to place
 trees. All trees are funded through donations and are planted by volunteers</p>
        

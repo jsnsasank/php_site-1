@@ -62,7 +62,7 @@ blockquote
   padding: 10px 20px 0 20px;
   border: 1px solid #E5E5DB;
   background: #FFF;}
-
+/**
 ul
 { margin: 2px 0 22px 17px;}
 
@@ -71,6 +71,7 @@ ul li
   margin: 0 0 6px 0; 
   padding: 0 0 4px 5px;
   line-height: 1.5em;}
+  **/
 
 ol
 { margin: 8px 0 22px 20px;}
@@ -141,17 +142,24 @@ ol li
 #logo_text h1 a .logo_colour
 { color: #E4EC04;}
 
-#logo_text h1 a .logo2_colour
-{ color: #87CEFA;}
+/* below two added for Planet Header color class logo_colour_planet */
+#logo_text h1 a .logo_colour_planet 
+{color: #72C3EC;} 
+
+#logo_text a:hover .logo_colour_planet
+{ color: #FFF;}
 
 #logo_text a:hover .logo_colour
 { color: #FFF;}
 
-#logo_text a:hover .logo2_colour
-{ color: #FFF;}
+/*below class org_logo is for org logo image in header */ 
+.org_logo
+{float: left;
+margin-left: -100px;
+}
 
-ul#up_events:hover
-{color:#008000;}
+#up_events li:hover
+{color:#1C6F07;}
 
 #logo_text h2
 { font-size: 120%;
@@ -639,4 +647,71 @@ a.anil-button-selected {
 	top:1px;
 }
 
+/* user Dashboard nav */
+/** profile nav links **/
+#profiletabs {
+  display: block;
+  margin-bottom: 4px;
+  height: 50px;
+ outline: none;
+}
+
+
+#main #profiletabsul{ list-style: none; display: block; width: 70%; height: 50px;
+ list-style-type: none !important;
+ }
+#profiletabs li{ float: left;}
+
+#profiletabs ul li a {
+  display: block;
+  float: left;
+  padding: 8px 11px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: #eae8db;
+  color: #666;
+  margin-right: 7px;
+  border: 1px solid #fff;
+  -webkit-border-radius: 5px;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius: 5px;
+  -moz-border-radius-bottomleft: 0;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+}
+#profiletabs ul li a:hover {
+  text-decoration: none;
+  background: #dad7c2;
+  color: #565656;
+}
+
+#profiletabs ul li a.sel {
+  background: #fff;
+  border-color: #d1cdb5;
+}
+#w {
+  display: block;
+  width: 750px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 45px;
+}
+#userphoto {
+  display: block;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 8px;
+}
+#userphoto img {
+  display: block;
+  padding: 2px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/** clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
 
