@@ -1,5 +1,36 @@
+
+<?php 
+session_start(); 
+?>
+
 <?php
-session_start();
+require ("scripts/DBcontrol.php");
+if(isset($_POST['register'])){
+
+$uname = strip_tags($_POST['username']);
+$password = strip_tags($_POST['password']);
+
+$uname = stripslashes($uname);
+$password = stripslashes($password);
+
+$uname = mysqli_real_escape_string($conn, $uname);
+$password = mysqli_real_escape_string($conn, $password);
+$password = md5($password);
+
+$check_uname = "SELECT username FROM users where username='$uname'";
+$run = mysqli_query($conn, $check_uname);
+if(mysqli_num_rows($run)>0){
+$msg =  "Username : ". $uname ." - already exists, Please choose other";
+}
+else {
+$query =  "INSERT INTO users (username, password) VALUES('$uname','$password')";
+if(mysqli_query($conn, $query)){
+echo "You are successfully registered..!!";
+}
+}
+mysqli_close($conn);
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -7,7 +38,8 @@ session_start();
 <head>
   <title>PlanetTrees - Register</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
- <script type="text/javascript" src="scripts/register_validation.js"></script>
+  <script type="text/javascript" src="scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/register_validation.js"></script>
 </head>
 
 <body>
@@ -19,79 +51,53 @@ session_start();
       <div id="content">
         <!-- insert the page content here -->
         <h1>Join Planet Trees</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p>
+        <p>By Joining the Planet Tree Organization, you can participate in various events like planting trees, environmental awareness programs, nature protection and so on. </p>
+         <?php
+  if(isset($_SESSION['username'])){
+  	echo "<span style=color:blue>".$_SESSION['username']." - Currenltly logged in. Please log off to access registration</span>";
+  	echo "
+		<script>
+		$(document).ready(function(){
+			$('#regbtn').attr('disabled','disabled');
+			$('#username').attr('disabled','disabled');
+			$('#password').attr('disabled','disabled');
+			$('#confpassword').attr('disabled','disabled');
+		});
+		</script>
+		" ;
+  }
+  ?>
    
 <h5 id="register_valid"> </h5><br>
 
-	<form class="anil-form  anil-form-aligned" onsubmit="return register_validate(this)">
+	<form name="register_form" class="anil-form  anil-form-aligned" onsubmit="return register_validate(this)" method="post" action="">
        <fieldset>
                <div class="pure-control-group">
             <label for="username">Username* : </label>
-            <input id="username" type="text" placeholder="Username" required>
+            <input id="username" name="username" type="text" placeholder="Username" required>&nbsp;&nbsp;<span id="checkuname"> </span>
         </div>
                 <div class="pure-control-group">
             <label for="password">Password* : </label>
-            <input id="password" type="text" placeholder="Password" required>
+            <input id="password" name="password" type="password" placeholder="Password" required>
         </div>
-        <div class="pure-control-group">
-            <label for="name">Name* : </label>
-            <input id="name" type="text" placeholder="First Name" required>
+        
+           <div class="pure-control-group">
+            <label for="password">Confirm Password* : </label>
+            <input id="confpassword" name="confpassword" type="password" placeholder="Confirm Password" required>
         </div>
-          <!--      <div class="pure-control-group">
-            <label for="dob">Date of Birth : </label>
-            <input id="dob" type="text" placeholder="Date of Birth">
+        
+          <div class="pure-controls">
        
-        </div> -->
-         <div class="pure-control-group">
-            <label for="phone">Phone* : </label>
-            <input id="phone" type="text" placeholder="Phone" required>
-        </div>
-
-        <div class="pure-control-group">
-            <label for="Address">Address Line : </label>
-            <input id="addrlin1" type="text" placeholder="Street">
-        </div>
-		<!--
-		<div class="pure-control-group">
-            <label for="Address">Address Line2 : </label>
-            <input id="addrlin2" type="text" placeholder="Apt num">
-        </div>
-		-->
-		<div class="pure-control-group">
-            <label for="City">City* : </label>
-            <input id="city" type="text" placeholder="City" required>
-        </div>
-		
-		<div class="pure-control-group">
-            <label for="state">State* : </label>
-            <input id="state" type="text" placeholder="State" required>
-        </div>
-		
-		<div class="pure-control-group">
-            <label for="country">Country* :</label>
-            <input id="country" type="text" placeholder="Country">
-        </div>
-        	<div class="pure-control-group">
-            <label for="zip">Zip Code* : </label>
-            <input id="zip" type="text" placeholder="Zip Code" required>
-        </div>
-
-        <div class="pure-control-group">
-            <label for="email">Email Address</label>
-            <input id="email" type="email" placeholder="Email Address">
-        </div>
-
-      
-        <div class="pure-controls">
-            <label for="cb" class="anil-checkbox">
-                <input id="cb" type="checkbox"> I've read the terms and conditions
-            </label>
 			<button type="reset" class="anil-button anil-button-primary">Reset</button>
-            <button type="submit" class="anil-button anil-button-primary">Submit</button>
+            <button id="regbtn" type="submit" name="register" class="anil-button anil-button-primary">Register</button>
             
         </div>
    <br> <div class="pure-control-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already member?<a href="login.php"><strong> Login here</strong></a></div>
     </fieldset>
+    <?php if(!empty($msg)){
+    	echo "<span style='color:red'>" . $msg . "</span>";
+    }
+    	?>
    </form>
    		</div>
        </div>

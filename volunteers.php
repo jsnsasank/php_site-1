@@ -18,7 +18,11 @@ session_start();
       <div id="content">
         <!-- insert the page content here -->
         <h1>Volunteer</h1>
-        <p>This page contains examples of all the styled elements available as part of this design. Use this page for reference, whilst you build your website.</p>
+        <p>YOU can make a difference today-- by joining our team of our volunteers. We have a vision of a greener Missouri, but to get there, we rely on volunteers like you to help transform our region into a healthy urban ecosystem, one community at a time.
+
+Volunteering with TreePeople is fun and rewarding. It’s also unlike typical volunteer experiences in that we empower YOU with the support, training and tools you need to be an engine of change.
+
+If you’re not already registered to be a volunteer, sign up now. Once you have a username and password, you can browse through our calendar to sign up for an event.</p>
         <h2>Headings</h2>
         <p>These are the different heading formats:</p>
         <h1>Heading 1</h1>

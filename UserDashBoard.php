@@ -7,6 +7,13 @@ if(!isset($_SESSION['username'])){
 } else {
 	$usr = $_SESSION['username'];
 	$uid = $_SESSION['id'];
+	$defaultval = "Not Available";
+	$c_name = (empty($_SESSION['FullName'])) ? $defaultval : $_SESSION['FullName'];
+	$c_email = (empty($_SESSION['Email'])) ? $defaultval : $_SESSION['Email'];
+	$c_phone = (empty($_SESSION['Phone'])) ? $defaultval : $_SESSION['Phone'];
+	$c_address = (empty($_SESSION['Address'])) ? $defaultval : $_SESSION['Address'];
+	$c_role = (empty($_SESSION['UserRole'])) ? $defaultval : $_SESSION['UserRole'];
+	
 }
 ?>
 <html>
@@ -14,6 +21,11 @@ if(!isset($_SESSION['username'])){
 <head>
   <title>Welcome <?php echo " - $usr" ?></title>
       <link rel="stylesheet" type="text/css" href="style/style.css" />
+      <script type="text/javascript" src="scripts/jquery.min.js"> </script>  
+      <script> <?php 
+  		echo "var uid = " . $uid . ";\n";
+  		?></script>
+      <script type="text/javascript" src="scripts/profilePage.js"></script>
 </head>
 
 <body>
@@ -28,34 +40,120 @@ if(!isset($_SESSION['username'])){
         <!-- insert the page content here -->
         <div id='w'>
        <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
-        <h1>Welcome <?php echo " - $usr" ?></h1>
+        <h1><?php echo "$usr" ?> - Profile </h1>
        <div id="profiletabs">
        <ul id="profiletabsul" class="clearfix">
-        <li><a href='updateprofile.php'>Edit Profile</a></li>
-        <li><a href='#bio'>Events</a></li>
-        <li><a href='#'>DashBoard</a></li>
+       <li><a href='#dash' class="sel">DashBoard</a></li>
+        <li><a href='#editprofile'>Edit Profile</a></li>
+        <li><a href='#event'>Events</a></li>
+        
        </ul>
      </div>
+       <section id="dash">
+       <h2>Hello, <?php echo $usr ?> .  welcome to your dash board.</h2> <br/>
+       <div class="para1">
+       <p> YOU can make a difference today-- by joining our team of our volunteers. We have a vision of a greener USA, but to get there, we rely on volunteers like you to help transform our region into a healthy urban ecosystem, one community at a time.
+
+    Volunteering with Planet Tree team is fun and rewarding. It is also unlike typical volunteer experiences in that we empower YOU with the support, training and tools you need to be an engine of change
+    Volunteering with TreePeople does not end with urban forestry and mountain restoration. We have a number of different ways for you to help us while you build skills in public speaking, office administration, park maintenance, and photography
+       </p>
+       
+       <p>Volunteers play an important role in tree planting and tree care projects in communities across the United States.
+    
+      From the planet trees organization  in Warens burg, Missouri, to the neighborhood associations in Kansas City and St.Louis, Chicago
+      they are the heart and soul of tree planting in America.
+       </p>
+    <p>You can get involved, too! Whether you are organizing a tree planting project or looking to volunteer at a tree planting or any other event. 
+you can take pride in helping to transform our urban landscapes.
+</p><br>
+       </div>
+       <h4>Your Previous Contributions :</h4>
+       <p class="para1">This organizatons runs on donations from volunteers</p>
+       <?php echo "<p class='para1'>No contribiutons found.</p>"?>
+       <p class="para1">would like to donate more, Please visit our <a href="donate.php">donations</a> page</p>
+       
+       <p class="para1">
+       Search by tree identifier -- In progress
+       </p>
+       
+       
+       <h4>Participated Events :</h4>
+       <p class="para1">Please check your particiated events. Please visit our 
+       <a href="gallery.php">gallery</a> page for the pictures of the events
+       </p>
+       <?php echo "<p class='para1'>Not events found.</p>"?>
+       </section>
      
-       <section id="bio">
-        <p>Various content snippets courtesy .</p>
+       <section id="event" class="hidden">
+        <h2>Upcoming Planting events.</h2>
+        <p class="para1">
+        We offer a variety of volunteer opportunities to plant and care for trees, restore our local mountains and to take care of our nursery and park. To get started, take a look at our volunteer calendar of events and register for an event that suits your interest and schedule.
+        Volunteer opportunities are available for all ages with a few restrictions. Volunteers under the age of 18 not accompanied by their parent or guardian must provide a parental consent form at the event 
+        </p>
         
-        <p>Can't a guy call his mother pretty without it seeming strange? Amen. I think that's one of Mom's little fibs, you know, like I'll sacrifice anything for my children.</p>
+        <p class="para1">
+        Registration is required for all events. We have to limit volunteer participation to ensure that we have enough tools, equipment and work for all volunteers. Please pre-register so that we  know how many people to expect and can plan accordingly. If you plan on bringing friends and family, please check that everyone has pre-registered for the event online
+        </p>
+        <?php
+        require 'scripts/DBcontrol.php';
+        $query = 'SELECT * FROM upcoming_events';
+        $result = mysqli_query($conn, $query);
+        $numrows = mysqli_num_rows($result);
         
-        <p>She's always got to wedge herself in the middle of us so that she can control everything. Yeah. Mom's awesome. I run a pretty tight ship around here. With a pool table.</p>
+        if($numrows != 0 ){
+        echo "<table>";
+        echo "<tr><th>EventName</th><th>Date</th><th>Location</th><th>Volunteer</th></tr>" ;
+        
+        while ($row = mysqli_fetch_assoc($result)){
+        	echo "<tr><td>". $row['EventName'] . "</td><td>". $row['EventDate']." ".$row['EventTime']."</td><td>".$row['Location'] ."</td><td id='evtid' class='hidden'>".$row['EventID']."</td><td><a href='#' class='enlink'>Enroll</a></td></tr>";        	
+        }
+        echo "</table>";
+        
+        }
+        
+        ?>
+        <div>
+        Please check our recent events. 
+        </div>
+                
       </section>
-      <section id="settings" class="hidden">
-        <p>Edit your user settings:</p>
-        
-        <p class="setting"><span>E-mail Address <img src="images/edit.png" alt="*Edit*"></span> lolno@gmail.com</p>
-        
-        <p class="setting"><span>Language <img src="images/edit.png" alt="*Edit*"></span> English(US)</p>
-        
-        <p class="setting"><span>Profile Status <img src="images/edit.png" alt="*Edit*"></span> Public</p>
-        
-        <p class="setting"><span>Update Frequency <img src="images/edit.png" alt="*Edit*"></span> Weekly</p>
-        
-        <p class="setting"><span>Connected Accounts <img src="images/edit.png" alt="*Edit*"></span> None</p>
+      
+      <section id="editprofile" class="hidden">
+        <h2>Edit your user settings:</h2>
+                       
+        <div class="gear">
+			<label>Primary E-Mail:</label>
+			<span id="Email" class="datainfo"><?php echo $c_email;?></span>
+			<a href="#" class="editlink">Edit Info</a>
+			<a class="savebtn">Save</a>
+		</div>
+		<div class="gear">
+		  <label>Full Name:</label>
+		  <span id="FullName" class="datainfo"><?php echo $c_name;?></span>
+		  <a href="#" class="editlink">Edit Info</a>
+		 <a class="savebtn">Save</a>
+		</div>
+		<div class="gear">
+		  <label>Phone:</label>
+		  <span id="Phone" class="datainfo"><?php echo $c_phone;?></span>
+		  <a href="#" class="editlink">Edit Info</a>
+		  <a class="savebtn">Save</a>
+		</div>
+				
+		<div class="gear">
+		  <label>Address:</label>
+		  <span id="Address" class="datainfo"><?php echo $c_address;?></span>
+		  <a href="#" class="editlink">Edit Info</a>
+		  <a class="savebtn">Save</a>
+		</div>
+		<br>
+		<div class='para1'> 
+		<p id='updatestatus'></p>
+		<p>Please review and update your personal details.</p>
+		<p>If you would like to change your password, You can change <a>here</a></p>
+		<p>Make sure that your email address is in the correct format.</p>
+		<p>To update the profile picture. Please click on the image.</p>
+		</div>
       </section>
        
         </div>

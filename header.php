@@ -30,7 +30,7 @@ window.addEventListener("load",dynamicClass,false);
       <div id="logo">
 	    <div id="logo_text">
 			 <!-- class="logo_colour", allows you to change the colour of the text -->
-          <h1 class="org_logo_head"><img class="org_logo" src="style/planet_logo.gif" alt="organization logo" height="100" width="100"><a href="index.php"><span class="logo_colour_planet">Planet</span><span class="logo_colour">Trees</span></a></h1>
+          <h1 class="org_logo_head"><img class="org_logo" src="style/planet_logo1.jpg" alt="organization logo" height="100" width="100"><a href="index.php"><span class="logo_colour_planet">Planet</span><span class="logo_colour">Trees</span></a></h1>
           <h2>Plant Trees. Change lives.</h2>
 		</div>
  	 </div>
@@ -40,7 +40,7 @@ window.addEventListener("load",dynamicClass,false);
 			<button  class='loggedinbutton'>"."Hi, ". $_SESSION['username'] . "</button>
 			<div class='dropdown-content'>
 			<a href='UserDashBoard.php'>My Dashboard</a>
-			<a href='updateprofile.php'>Edit My profile</a>
+			<a href='UserDashBoard.php#editprofile'>Edit My profile</a>
 			<a href='logout.php'>Logout</a>
 		</div>
 			</div>";

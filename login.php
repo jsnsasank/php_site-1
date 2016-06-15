@@ -15,20 +15,36 @@ if(isset($_SESSION['id'])){
  	$password = mysqli_real_escape_string($conn, $password);
  	$password  = md5($password);
  	
+ 	$result = 0;
  	$sql = "SELECT * FROM users WHERE UserName='$username' LIMIT 1";
  	$result = mysqli_query($conn, $sql);
+ 	if($result === FALSE) {
+ 		$msg = "Database error. Pls contact administrator";
+ 	}else {
+ 	$num_rows = mysqli_num_rows($result);
+ 	if( $num_rows != 0 ){
  	$row = mysqli_fetch_array($result);
  	$id = $row['UserID'];
  	$db_password = $row['Password'];
  	if($password == $db_password){
- 		$_SESSION['username'] = $username;
- 		$_SESSION['id'] = $id;
+ 		$_SESSION['username'] 	= $username;
+ 		$_SESSION['id'] 		= $id;
+ 		$_SESSION['FullName'] 	= $row['FullName'];
+ 		$_SESSION['Email'] 		= $row['Email'];
+ 		$_SESSION['Phone'] 		= $row['Phone'];
+ 		$_SESSION['Address'] 	= $row['Address'];
+ 		$_SESSION['UserRole'] 	= $row['UserRole'];
  		header("Location: UserDashBoard.php");
  		
  	}else {
  		$msg = "Invalid username and password";
  	}
  	
+ }else {
+ 	$msg = "User Not found";
+ 	
+ }
+ }
  }
 
 ?>
@@ -71,6 +87,11 @@ if(isset($_SESSION['id'])){
         </div><br>
 
     </fieldset>
+    <?php 
+    if(!empty($msg)){
+    echo "<span style='color:red'> $msg </span>" ; 
+	}
+	?>
      </form> 
         <p><br /><br />Not Registred yet ? Please <a href="register.php"> register here.</a></p>
      
