@@ -93,10 +93,12 @@ ol li
 { display: block;
   text-align: center;
   margin: 20px auto;}
+ 
 
 #main, #logo, #menubar, #site_content, #footer
 { margin-left: auto; 
-  margin-right: auto;}
+  margin-right: auto;
+  }
 
 #header
 { background: #323534 url(back.png) repeat-x;
@@ -268,7 +270,9 @@ ul#menu li a:hover
   padding: 28px 0 5px 0;
   text-align: center; 
   background: #3B3939 url(footer.png) repeat-x;
-  color: #A8AA94;}
+  color: #A8AA94;
+  bottom: 0;
+  }
 
 #footer p
 { line-height: 1.7em;
@@ -339,7 +343,7 @@ ul#menu li a:hover
   border-top: 1px solid #D9D5CF;
   border-bottom: 1px solid #FFF;
   margin: 0 0 20px 0;}
-/*
+
 table
 { margin: 10px 0 30px 0;}
 
@@ -435,6 +439,7 @@ a.anil-button-selected {
 .anil-form input[type="tel"],
 .anil-form input[type="color"],
 .anil-form select,
+.anil-form option,
 .anil-form textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
@@ -696,6 +701,7 @@ a.anil-button-selected {
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 45px;
+  min-height: 100%;
 }
 #userphoto {
   display: block;

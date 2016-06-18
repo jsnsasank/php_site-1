@@ -8,6 +8,9 @@ $uid = test_input($_POST['uid']);
 $sql = "UPDATE users SET $col = '$val' WHERE UserID = '$uid' " ;
 if(mysqli_query($conn, $sql)){
 	echo "successful";
+	session_start();
+	unset($_SESSION["$col"]);
+	$_SESSION["$col"] = $val;
 } else {
 	echo "Error : " . mysqli_errno($conn);
 }

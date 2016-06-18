@@ -1,9 +1,7 @@
 <?php 
 session_start();
-if(isset($_SESSION['id']) && $_SESSION['UserRole'] != "Admin"){
+if(isset($_SESSION['id'])){
 	header("Location: UserDashBoard.php");
-} elseif(isset($_SESSION['id']) && $_SESSION['UserRole'] == "Admin"){
-	header("Location: AdminDashBoard.php");
 }
  if(isset($_POST['login'])){
  	require ("scripts/DBcontrol.php");
@@ -27,7 +25,6 @@ if(isset($_SESSION['id']) && $_SESSION['UserRole'] != "Admin"){
  	if( $num_rows != 0 ){
  	$row = mysqli_fetch_array($result);
  	$id = $row['UserID'];
-	$type = $row['Type'];
  	$db_password = $row['Password'];
  	if($password == $db_password){
  		$_SESSION['username'] 	= $username;
@@ -35,19 +32,11 @@ if(isset($_SESSION['id']) && $_SESSION['UserRole'] != "Admin"){
  		$_SESSION['FullName'] 	= $row['FullName'];
  		$_SESSION['Email'] 		= $row['Email'];
  		$_SESSION['Phone'] 		= $row['Phone'];
- 		$_SESSION['type']		= $row['type'];
  		$_SESSION['Address'] 	= $row['Address'];
- 		$_SESSION['UserRole'] 	= (empty($row['UserRole'])) ? 'Normal' : $row['UserRole'];
+ 		$_SESSION['UserRole'] 	= $row['UserRole'];
+ 		header("Location: UserDashBoard.php");
  		
-		if( $_SESSION['UserRole'] == "Admin"){
- 			header("Location: AdminDashBoard.php");
- 		}else {
- 			header("Location: UserDashBoard.php");
- 		}
-		
-		
- 	}
-	else {
+ 	}else {
  		$msg = "Invalid username and password";
  	}
  	

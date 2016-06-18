@@ -4,6 +4,9 @@ if(!isset($_SESSION['username'])){
 	echo "<h1>Sorry You dont have access to this page..</h1>";
 	die('Unauthorized access');
 	
+} elseif(isset($_SESSION['UserRole']) && $_SESSION['UserRole'] == "Admin" ){
+	echo "<h1>Sorry You dont have access to this page..</h1>";
+	die('Unauthorized access');
 } else {
 	$usr = $_SESSION['username'];
 	$uid = $_SESSION['id'];
@@ -46,6 +49,7 @@ if(!isset($_SESSION['username'])){
        <li><a href='#dash' class="sel">DashBoard</a></li>
         <li><a href='#editprofile'>Edit Profile</a></li>
         <li><a href='#event'>Events</a></li>
+        <li><a href='#req'>Requests</a></li>
         
        </ul>
      </div>
@@ -131,7 +135,7 @@ you can take pride in helping to transform our urban landscapes.
 		  <label>Full Name:</label>
 		  <span id="FullName" class="datainfo"><?php echo $c_name;?></span>
 		  <a href="#" class="editlink">Edit Info</a>
-		 <a class="savebtn">Save</a>
+		  <a class="savebtn">Save</a>
 		</div>
 		<div class="gear">
 		  <label>Phone:</label>
@@ -155,7 +159,57 @@ you can take pride in helping to transform our urban landscapes.
 		<p>To update the profile picture. Please click on the image.</p>
 		</div>
       </section>
-       
+      
+      <section id="req" class="hidden">
+      <h2>Check Status</h2> 
+      <p class='para1'>If you have requested for a planting tree previously. You can check the status of your request with confirmation number.
+      The Request confirmation starts with RQ and contains only numbers and upper case letters 
+      </p>
+      <form class="anil-form  anil-form-aligned" >  
+       <div class="pure-control-group">
+          <label>Search Previous Requests : </label>
+	     <input id="rqsearch" type="text"  name="search_field" placeholder="Enter Tree identifier...." >
+	     <input id="rqimage" name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+	     <span id="searchspan" style='color:red'></span>
+		</div>
+	 </form>
+	 <div id="rqresult">
+	 </div>
+      
+     
+      <h2>Make a new Request for tree planting</h2>
+      <p class='para1'>You can request for trees to be planted in a particular location.Please submit the following form</p>
+      <form class="anil-form  anil-form-aligned" >
+       <fieldset>
+       <p id="req-status"></p>
+        <div class="pure-control-group">
+            <label>Location : </label>
+            <textarea id="req-location" rows="4" placeholder="Location with longitute/latitude details" required></textarea>
+        </div>
+		<div class="pure-control-group">
+		   <label for="species">Species : </label>
+			 <select id="species" required>
+			 	<option>Red Maple	</option>
+			 	<option>Sugar Maple	</option>
+			 	<option>River Birch	</option>
+			 	<option>Catalpa		</option>
+			 </select> 
+		  </div>
+		  
+		  <div class="pure-control-group">
+		   <label>Quantity : </label>
+			 <input id="quantity" type="number" autocomplete="off"  min="1"> 
+		  </div>
+		  <div class="pure-control-group">
+		   <label>Reason : </label>
+			<textarea id="req-comments" rows="4" placeholder="Reason/comments for this request" required></textarea>
+		  </div>
+		 		 
+	  </fieldset>
+	  <button id="req-button" class="anil-button anil-button-primary"> Submit Request </button>
+	  </form>
+      </section>
+       <h3 id="reqcode"> </h3>
         </div>
         <!-- End of the page content -->
          
@@ -166,3 +220,4 @@ you can take pride in helping to transform our urban landscapes.
    </div>
 </body>
 </html>
+

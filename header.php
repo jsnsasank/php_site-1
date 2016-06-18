@@ -34,18 +34,21 @@ window.addEventListener("load",dynamicClass,false);
           <h2>Plant Trees. Change lives.</h2>
 		</div>
  	 </div>
-	  	  	  <?php 
+	  <?php 
 	  if(!empty($_SESSION["username"])){
-	  	echo "<div class='dropdown' style='float: right;margin-right: 20px;'>
-			<button  class='loggedinbutton'>"."Hi, ". $_SESSION['username'] . "</button>
-			<div class='dropdown-content'>
-			<a href='UserDashBoard.php'>My Dashboard</a>
-			<a href='UserDashBoard.php#editprofile'>Edit My profile</a>
-			<a href='logout.php'>Logout</a>
-		</div>
-			</div>";
+	  	echo '<div class="dropdown" style="float: right;margin-right: 20px;">
+			<button  class="loggedinbutton">'.'Hi, '. $_SESSION['username'] . '</button>
+			<div class="dropdown-content">
+			 ' ?>
+			<a href="<?php if($_SESSION['UserRole'] == "Admin"){echo "AdminDashBoard.php";}else{echo "UserDashBoard.php";}?>">My Dashboard</a>
+			<a href="<?php if($_SESSION['UserRole'] == "Admin"){echo "AdminDashBoard.php#editprofile";}else{echo "UserDashBoard.php#editprofile";}?>">Edit My profile</a>
+			<a href="logout.php">Logout</a>
+			<?php echo " 
+			</div>
+			</div>"
+			?>
+	  <?php 
 	  }
-	  
 	  ?>
 	     <div id="menubar">
         <ul id="menu">
