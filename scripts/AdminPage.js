@@ -4,7 +4,7 @@ $(function(){
   	
 	var path = window.location.pathname;
 	var page = path.split("/").pop();
-	console.log(page);
+	
     switch (page){
     case 'AdminDashBoard.php':
     	$('#ajx_dash').addClass('sel');
@@ -96,7 +96,9 @@ $(document).ready(function(){
 	});
 });
 
-
+$(document).ready(function(){
+	
+});
 function validateEmail(email){
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -105,3 +107,18 @@ function validatePhone(phone) {
 	  var re = /^[0-9()-]+$/;
 	  return re.test(phone);
 	}
+function showReqTable(status){
+	$.ajax({
+		url: "scripts/getreqs.php",
+		type: "POST",
+		data: {'status':status},
+		success:function(data){
+			console.log(data);
+			$('#req_result').html(data);
+		},
+		  error: function(xhr,desc,err){
+			  console.log("failed with error : " + xhr + "\n"+err);
+		  }
+	}) //Ajax
+	
+}

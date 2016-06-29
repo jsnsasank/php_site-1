@@ -350,13 +350,15 @@ table
 table tr th, table tr td
 { background: #3B3B3B;
   color: #FFF;
-  padding: 7px 4px;
+  padding: 1px;
   text-align: left;}
   
 table tr td
 { background: #E5E5DB;
   color: #47433F;
+  font-size: 14px;
   border-top: 1px solid #FFF;}
+tr:hover {background-color: #ffffff}
 
  .anil-button {
     font-family: inherit;
@@ -439,7 +441,6 @@ a.anil-button-selected {
 .anil-form input[type="tel"],
 .anil-form input[type="color"],
 .anil-form select,
-.anil-form option,
 .anil-form textarea {
     padding: 0.5em 0.6em;
     display: inline-block;

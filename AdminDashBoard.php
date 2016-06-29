@@ -45,11 +45,19 @@ if(!isset($_SESSION['username'])){
        <div id="profiletabs">
      <?php include 'tabs.php';?>
      </div>
-     <div id='w'>
-     <h2>Hello, <?php echo $usr ?> .  welcome to your dash board.</h2> <br/>
-      <span>Please review the pending and unshcduled requests.<span>
-       
+<div id='w'>
+      <h3>Please review the pending and unschduled requests.</h3>
+      <p>Select the type of requests form the drop down.</p>
+     <label>Type</label>
+    <select id="req" class="middle" onchange="showReqTable(this.value)"> 
+    <option value="" disabled selected>ALL</option>
+    <option value="" >pending</option>
+    <option value="" >unscheduled</option>
+    </select>
+       <div id="req_result">
        </div>
+       
+ </div>
         <!-- End of the page content -->
          
     </div>
