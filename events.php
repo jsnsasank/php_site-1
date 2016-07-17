@@ -46,7 +46,57 @@ if(!isset($_SESSION['username'])){
      <?php include 'tabs.php';?>
      </div>
      <div id='w'>
-        <h2>Upcoming Planting events.</h2>
+     <h1>Create New Event </h1>
+      <span style="color:red" id="eventerror"></span>
+     <form method="POST" class="anil-form  anil-form-aligned" id="neweventform">
+       <fieldset>
+      
+        <div class="pure-control-group">
+            <label>Event Name : </label>
+            <input id="Eventname" name="Eventname" type="text" placeholder="Name of the Event" required>
+        </div>
+
+        <div class="pure-control-group">
+            <label>Event Date : </label>
+            <input id="Eventdate" name="Eventdate" type="date" placeholder="yyyy-mm-dd" required>
+        </div>
+		
+		<div class="pure-control-group">
+            <label>Event Time : </label>
+            <input id="Eventtime" name="Eventtime" type="text" placeholder="2pm">
+        </div>
+		
+		<div class="pure-control-group">
+            <label>Event Location : </label>
+            <input id="Eventlocation" name="Eventlocation" type="text" placeholder="UCM,Warrensburg,MO" required>
+        </div>
+		
+        <div class="pure-control-group">
+            <label>Description :</label>
+            <input id="Description" name="Description" type="text" placeholder="Describe the event" required>
+        </div>
+        
+        <div class="pure-control-group">
+            <label>Lead Volunteer :</label>
+            <select id="lead" name="lead"  required>
+            <option value="" disabled selected>Select Lead Volunteer</option>
+            <?php require 'scripts/DBcontrol.php';
+            $vol_query = "SELECT UserID,UserName from users where UserRole is null or UserRole != 'Admin'; ";
+            $vol_result = mysqli_query($conn, $vol_query);
+            while($row = mysqli_fetch_array($vol_result)){
+              echo '<option value="'.$row['UserID'].'">'.$row['UserName'] .'</option>';	
+            }
+            ?>
+            </select>
+        </div>
+		 
+	  <button id="saveEvent" name="submit" type="button" class="anil-button anil-button-primary">Save Event</button>
+	  </fieldset>
+	  </form>
+	  <br/>
+	  <h4 id="eventstatus"></h4>
+	  <hr/>
+        <h1>Upcoming Planting events.</h1>
         <?php
         require 'scripts/DBcontrol.php';
         $query = 'SELECT * FROM upcoming_events';
@@ -63,25 +113,23 @@ if(!isset($_SESSION['username'])){
         echo "</table>";
         
         }
+        echo '<h1>List of Completed Events</h1>';
+        $query1 = 'SELECT * FROM completed_events';
+        $result1 = mysqli_query($conn, $query1);
+        $numrows1 = mysqli_num_rows($result1);
         
-        function pending_reqs(){
-        	
+        if($numrows1 != 0 ){
+        	echo "<table>";
+        	echo "<tr><th>EventName</th><th>Date</th><th>Location</th></tr>" ;
+        
+        	while ($row = mysqli_fetch_assoc($result1)){
+        		echo "<tr><td>". $row['EventName'] . "</td><td>". $row['EventDate']." ".$row['EventTime']."</td><td>".$row['Location'] ."</td></tr>";
+        	}
+        	echo "</table>";
+        
         }
         
-        function  unscheduled_reqa() {
-        	
-        }
-        
-        function available_trees(){
-        	
-        }
-        
-        ?>
-       
-                
-     
-      
-      
+ ?>
        
        </div>
         <!-- End of the page content -->

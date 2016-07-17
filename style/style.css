@@ -356,8 +356,8 @@ table tr th, table tr td
 table tr td
 { background: #E5E5DB;
   color: #47433F;
-  font-size: 12px;
-  border-top: 1px solid #FFF;}
+  font-size: 15px;
+  border-top: 2px solid #FFF;}
 tr:hover {background-color: #ffffff}
 
  .anil-button {

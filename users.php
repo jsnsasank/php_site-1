@@ -17,6 +17,7 @@ if(!isset($_SESSION['username'])){
 	$c_role = (empty($_SESSION['UserRole'])) ? $defaultval : $_SESSION['UserRole'];
 
 }
+
 ?>
 <html>
 
@@ -28,6 +29,7 @@ if(!isset($_SESSION['username'])){
   		echo "var uid = " . $uid . ";\n";
   		?></script>
       <script type="text/javascript" src="scripts/AdminPage.js"></script>
+      <script type="text/javascript" src="scripts/AdminPageUsers.js"></script>
 </head>
 
 <body>
@@ -46,7 +48,37 @@ if(!isset($_SESSION['username'])){
      <?php include 'tabs.php';?>
      </div>
      <div id='w'>
-     <p> user management</p> 
+     <h3> User Administration</h3> 
+     <h5>Plesse review and delete user accounts if needed</h5>
+     <span id="dbresult" style="color:red"></span>
+ 
+<?php 
+
+require 'scripts/DBcontrol.php';
+$user_query = "SELECT * FROM users" ;
+$user_result = mysqli_query($conn, $user_query);
+?>
+<table border='1' cellpadding='10'>
+
+<tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Role</th> <th>Options</th></tr>
+
+<?php while($row = mysqli_fetch_array( $user_result )) { 
+	echo "<tr>";
+	
+	echo '<td>' . $row['UserID'] . '</td>';
+	
+	echo '<td>' . $row['UserName'] . '</td>';
+	
+	echo '<td>' . $row['Email'] . '</td>';
+	
+	echo '<td>' . $row['UserRole'] . '</td>';
+?>
+	 <td><a href="<?php echo $row['UserID']; ?>" class="ulink" onclick="return confirm('Are You sure?')">Delete</a></td>
+	</tr>
+<?php }?>
+</table>
+
+
        
        </div>
         <!-- End of the page content -->

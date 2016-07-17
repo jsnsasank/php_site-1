@@ -8,7 +8,7 @@ $query = "select reqID, reqDate, Location, species, quantity, comments,status,re
 if ($status == "pending"){
 	$query = "select reqID, reqDate, Location, species, quantity, comments,status,reqUID,u.UserName from plant_tree_req p,users u where p.reqUID=u.userID and status='pending' order by reqdate";
 }
-if ($status == "unschduled"){
+if ($status == "unscheduled"){ 
 	$query = "select reqID, reqDate, Location, species, quantity, comments,status,reqUID,u.UserName from plant_tree_req p,users u where p.reqUID=u.userID and status='unscheduled' order by reqdate";
 }
 
@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
 	echo "<table><tr><th>Req ID</th><th>Requested Date</th><th>Location</th><th>Species</th><th>Quantity</th><th>comments</th><th>status</th><th>Requestor Name</th></tr>" . $data2 . "</table>" ;
 
 }else {
-	echo "<h1>Database Error, Please contact administrator</h1>";
+	echo "<h1>No Results Found</h1>";
 }
 
 
@@ -35,3 +35,4 @@ function test_input($data) {
 }
 
 ?>
+

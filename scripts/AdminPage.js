@@ -107,13 +107,22 @@ function validatePhone(phone) {
 	  var re = /^[0-9()-]+$/;
 	  return re.test(phone);
 	}
+$(document).ready(function() {
+	  showReqTable("ALL");
+	   $('#req').change( function() {
+
+	    status = $('#req option:selected').text();
+	    showReqTable(status)
+	    });
+});
+
 function showReqTable(status){
 	$.ajax({
 		url: "scripts/getreqs.php",
 		type: "POST",
 		data: {'status':status},
 		success:function(data){
-			console.log(data);
+			
 			$('#req_result').html(data);
 		},
 		  error: function(xhr,desc,err){
@@ -122,3 +131,80 @@ function showReqTable(status){
 	}) //Ajax
 	
 }
+
+$(document).ready(function() {
+	$("#freetrees").on("click", function(e){
+		$.ajax({
+			url: "scripts/freetrees.php",
+			type: "POST",
+			success:function(data){
+				$('#freetree_result').html(data);
+			},
+			  error: function(xhr,desc,err){
+				  console.log("failed with error : " + xhr + "\n"+err);
+			  }
+		}) //Ajax
+		
+		
+	}); // click 
+
+});
+
+$(document).ready(function() {
+
+	$("#saveEvent").on("click", function(e){
+		
+	$('#eventerror').text('');
+	var ename 	  = $('#Eventname').val();
+	var edate 	  = $('#Eventdate').val();
+	var etime 	  = $('#Eventtime').val();
+	var elocation = $('#Eventlocation').val();
+	var edesc 	  = $('#Description').val();
+	var elead     = $('#lead').val();
+	var eleadname = $("#lead option:selected").text();
+	
+	if(ename.length == 0){
+	  $('#eventerror').text("Please Fill the event name");
+	  return false;
+	}
+	if(edate.length == 0){
+	  $('#eventerror').text("Please Fill the event Date");
+	  return false;
+	}
+	if(etime.length == 0) {
+	  $('#eventerror').text("Please Fill the event Time");
+	  return false;
+	}
+	if(elocation.length == 0){
+	  $('#eventerror').text("Please Fill the event Location");
+	  return false;
+	}
+	
+	var lead_reg = /^\d+$/;
+	if(!lead_reg.exec(elead)){
+		$('#eventerror').text("Please Select a Lead Volunteer.");
+		return false;
+	}
+	e.preventDefault();
+	
+	$.ajax({
+		url: "scripts/addEvent.php",
+		type: "POST",
+		data: {'name':ename,'date':edate,'time': etime,'location':elocation,'desc':edesc,'lead':elead,'leadname':eleadname},
+		success:function(eventdata){
+			if(eventdata == "successful"){
+				$('#eventstatus').text("New event Succssfully created ; Lead Volunteer is : "+eleadname);
+				$('#neweventform').find('input:text').val(''); 
+			}else{
+				$('#eventstatus').html("<span style='color:red'>DB Error.Contact site Admin</span>");
+				console.log(eventdata);
+			}
+		},
+		error: function(xhr,desc,err){
+		  console.log("failed with error : " + xhr + "\n"+err);
+		}
+	}) //ajax
+		
+		
+	}); // click 
+});

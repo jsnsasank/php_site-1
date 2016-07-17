@@ -46,7 +46,60 @@ if(!isset($_SESSION['username'])){
      <?php include 'tabs.php';?>
      </div>
      <div id='w'>
-    <p>  reports</p>
+    <h1>Planet Tree System - Reports</h1>
+<?php require 'scripts/DBcontrol.php';
+    $funds_query  = "select sum(Amount) as TOTAL  from donations";
+    $funds_reuslt = mysqli_query($conn, $funds_query);
+    
+    while($row = mysqli_fetch_array( $funds_reuslt )) {
+      echo '<h3> Current Available Funds : $'.$row['TOTAL'] . '</h3>';
+    }
+    echo '<h2> Planted Tree Reports with Event Details </h2>';
+    
+    $tree_query  = "select ae.Identifier,t.Treename, ae.Eventid, ce.EventName,ce.EventDate,ce.EventTime,ce.Location,ce.Description from alloted_trees_for_events ae, treeids t, completed_events ce where ae.Identifier=t.Identifier and ce.EventID=ae.Eventid;";
+    $tree_result = mysqli_query($conn, $tree_query);
+    echo "<table border='1' cellpadding='10'>";
+    
+    echo '<tr> <th>Tree Id</th> <th>Tree Name</th> <th>Event Name</th> <th>EventDate</th> <th>Location</th><th>Description</th></tr>';
+			
+    while ($trow = mysqli_fetch_array($tree_result)){
+      echo "<tr>";
+      
+      echo '<td>' . $trow['Identifier'] . '</td>';
+      echo '<td>' . $trow['Treename'] . '</td>';
+      echo '<td>' . $trow['EventName'] . '</td>';
+      echo '<td>' . $trow['EventDate'] . '</td>';
+      echo '<td>' . $trow['Location'] . '</td>';
+      echo '<td>' . $trow['Description'] . '</td>';
+      
+      echo  "</tr>";
+    	
+    }
+    
+    echo "</table>";
+    
+    echo '<h2> Contributor and Donations Report </h2>';
+    $donations_query  = "select Name,TransactionDate,Amount from donations;";
+    $donations_result = mysqli_query($conn, $donations_query);
+    
+    echo "<table border='1' cellpadding='10'>";
+    echo '<tr> <th>Contributor Name</th> <th>TransactionDate</th> <th>Amount</th></tr>';
+    
+    while ($drow = mysqli_fetch_array($donations_result)){
+      echo "<tr>";
+      echo '<td>' . $drow['Name'] . '</td>';
+      echo '<td>' . $drow['TransactionDate'] . '</td>';
+      echo '<td>' . $drow['Amount'] . '</td>';
+      echo "</tr>";
+    }
+    
+    echo "</table>";
+    
+    
+?>
+    
+    
+    
       
       
        

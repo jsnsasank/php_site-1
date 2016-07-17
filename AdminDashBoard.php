@@ -46,15 +46,18 @@ if(!isset($_SESSION['username'])){
      <?php include 'tabs.php';?>
      </div>
 <div id='w'>
-      <h3>Please review the pending and unschduled requests.</h3>
+      <h3>Please review the pending and unscheduled requests.</h3>
       <p>Select the type of requests form the drop down.</p>
      <label>Type</label>
-    <select id="req" class="middle" onchange="showReqTable(this.value)"> 
+    <select id="req" class="middle"> 
     <option value="" disabled selected>ALL</option>
     <option value="" >pending</option>
     <option value="" >unscheduled</option>
     </select>
        <div id="req_result">
+       </div>
+     <input id="freetrees" type="button" value="See Availalbe Trees" class="anil-button anil-button-primary" />
+      <div id="freetree_result">
        </div>
        
  </div>

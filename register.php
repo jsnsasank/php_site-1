@@ -25,7 +25,7 @@ $msg =  "Username : ". $uname ." - already exists, Please choose other";
 else {
 $query =  "INSERT INTO users (username, password) VALUES('$uname','$password')";
 if(mysqli_query($conn, $query)){
-echo "You are successfully registered..!!";
+$msg = "You are successfully registered..!!";
 }
 }
 mysqli_close($conn);
