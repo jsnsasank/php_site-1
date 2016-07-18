@@ -56,11 +56,11 @@ if(!isset($_SESSION['username'])){
     }
     echo '<h2> Planted Tree Reports with Event Details </h2>';
     
-    $tree_query  = "select ae.Identifier,t.Treename, ae.Eventid, ce.EventName,ce.EventDate,ce.EventTime,ce.Location,ce.Description from alloted_trees_for_events ae, treeids t, completed_events ce where ae.Identifier=t.Identifier and ce.EventID=ae.Eventid;";
+    $tree_query  = "select ae.Identifier,t.Treename, ae.Eventid,ae.status,ce.EventName,ce.EventDate,ce.EventTime,ce.Location,ce.Description from alloted_trees_for_events ae, treeids t, completed_events ce where ae.Identifier=t.Identifier and ce.EventID=ae.Eventid;";
     $tree_result = mysqli_query($conn, $tree_query);
     echo "<table border='1' cellpadding='10'>";
     
-    echo '<tr> <th>Tree Id</th> <th>Tree Name</th> <th>Event Name</th> <th>EventDate</th> <th>Location</th><th>Description</th></tr>';
+    echo '<tr> <th>Tree Id</th> <th>Tree Name</th> <th>Event Name</th> <th>EventDate</th> <th>Location</th><th>Description</th><th>Status</th></tr>';
 			
     while ($trow = mysqli_fetch_array($tree_result)){
       echo "<tr>";
@@ -71,6 +71,7 @@ if(!isset($_SESSION['username'])){
       echo '<td>' . $trow['EventDate'] . '</td>';
       echo '<td>' . $trow['Location'] . '</td>';
       echo '<td>' . $trow['Description'] . '</td>';
+      echo '<td>' . $trow['status'] . '</td>';
       
       echo  "</tr>";
     	

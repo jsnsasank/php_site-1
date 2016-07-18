@@ -29,6 +29,7 @@ if(!isset($_SESSION['username'])){
   		echo "var uid = " . $uid . ";\n";
   		?></script>
       <script type="text/javascript" src="scripts/profilePage.js"></script>
+      <script type="text/javascript" src="scripts/leadprofile.js"></script>
 </head>
 
 <body>
@@ -55,8 +56,67 @@ if(!isset($_SESSION['username'])){
      </div>
        <section id="dash">
        <h2>Hello, <?php echo $usr ?> .  welcome to your dash board.</h2> <br/>
+<?php require 'scripts/DBcontrol.php';
+
+  $lead_query  = "select * from upcoming_events where lead='$usr' ";
+  $lead_result = mysqli_query($conn, $lead_query);
+  $event_count = mysqli_num_rows($lead_result);
+  
+  if($c_role == "lead"  && $event_count > 0 )  {
+	echo  '<h3> You have been selected as lead Volunteer for the following events</h3>';
+	echo "<table>";
+	echo "<tr><th>EventName</th><th>Date</th><th>Location</th><th>Lead Volunteer</th><th>options</th></tr>" ;
+	
+	while ($row = mysqli_fetch_assoc($lead_result)){
+		echo "<tr><td>". $row['EventName'] . "</td><td>". $row['EventDate']." ".$row['EventTime']."</td><td>".$row['Location'] ."<td>".$row['lead'] ."</td><td> <a class='leadevent' href=".$row['EventID'].">Update Event</a></td></tr>";
+	}
+	echo "</table>";
+  }
+?>
+<div id="neweventform" class="hidden">
+<form method="POST" class="anil-form  anil-form-aligned" >
+       <fieldset>
+       
+      <h3> Update  Event : </h3>
+       <div class="pure-control-group">
+            <label>Event Name : </label>
+            <input id="eventname" name="eventname" type="text" disabled="disabled" placeholder="event name" />
+        </div>
+      <div class="pure-control-group">
+            <label>Event Id : </label>
+            <input id="eventid" name="eventid" type="text" disabled="disabled" placeholder="event id" />
+        </div>
+		<br/>
+		 <p>Select the Requested id that can be associated with this event<br>
+		 These Requests will marked as completed under this event.</p>
+        <div class="pure-control-group">
+            <label>Request Id :</label>
+            <select id="requestid" name="requestid">
+            <option value="" disabled selected>Select Request ID</option>
+             <?php require 'scripts/DBcontrol.php';
+            $req_query = "select reqID from plant_tree_req where reqID NOT IN ( select reqID from alloted_reqs_for_events)";
+            $req_result = mysqli_query($conn, $req_query);
+            while($row = mysqli_fetch_array($req_result)){
+              echo '<option value="'.$row['reqID'].'">'.$row['reqID'] .'</option>';	
+            }
+            ?>
+            </select>
+           
+            <br/><ul id="requl">
+            
+            </ul>
+        </div>
+       
+      
+	  <button id="saveEvent" name="submit" type="button" class="anil-button anil-button-primary">Save Event</button>
+	 
+	   </fieldset>
+	  </form> 
+	  <span style='color:red' id="evterror"></span>
+</div> <!-- hiding div ends -->
+ 
        <div class="para1">
-       <p> YOU can make a difference today-- by joining our team of our volunteers. We have a vision of a greener USA, but to get there, we rely on volunteers like you to help transform our region into a healthy urban ecosystem, one community at a time.
+       <p> You can make a difference today-- by joining our team of our volunteers. We have a vision of a greener USA, but to get there, we rely on volunteers like you to help transform our region into a healthy urban ecosystem, one community at a time.
 
     Volunteering with Planet Tree team is fun and rewarding. It is also unlike typical volunteer experiences in that we empower YOU with the support, training and tools you need to be an engine of change
     Volunteering with TreePeople does not end with urban forestry and mountain restoration. We have a number of different ways for you to help us while you build skills in public speaking, office administration, park maintenance, and photography
@@ -72,8 +132,24 @@ you can take pride in helping to transform our urban landscapes.
 </p><br>
        </div>
        <h4>Your Previous Contributions :</h4>
-       <p class="para1">This organizatons runs on donations from volunteers</p>
-       <?php echo "<p class='para1'>No contribiutons found.</p>"?>
+       <p class="para1">This organizaton runs on donations from volunteers</p>
+       <?php require 'scripts/DBcontrol.php';
+       $con_query = "select Name,TransactionDate,Card,Amount,TranscationID from donations where Name='$usr'";
+       $con_result = mysqli_query($conn, $con_query);
+       $con_count = mysqli_num_rows($con_result);
+       if($con_count != 0){
+       	 echo '<table>';
+       	 echo "<tr><th>Name</th><th>Date</th><th>Card</th><th>Amount</th><th>TranscationID</th></tr>" ;
+       	 while ($row = mysqli_fetch_assoc($con_result)){
+       	 	echo "<tr><td>". $row['Name'] . "</td><td>". $row['TransactionDate']."</td><td>".$row['Card']."</td><td>$".$row['Amount'] . "</td><td>" . $row['TranscationID'] . "</td></tr>";
+       	 }
+       	 
+       	 echo '</table>';
+       }else{
+       	echo "<h4>No contributions found.</h4>";
+       }
+            
+        ?>
        <p class="para1">would like to donate more, Please visit our <a href="donate.php">donations</a> page</p>
        
        <p class="para1">
@@ -81,11 +157,26 @@ you can take pride in helping to transform our urban landscapes.
        </p>
        
        
-       <h4>Participated Events :</h4>
-       <p class="para1">Please check your particiated events. Please visit our 
+       <h4>Enrolled Events :</h4>
+       <p class="para1">Please check your enrolled  events. Please visit our 
        <a href="gallery.php">gallery</a> page for the pictures of the events
        </p>
-       <?php echo "<p class='para1'>Not events found.</p>"?>
+       <?php require 'scripts/DBcontrol.php';
+       $enr_query = "SELECT u.EventName, u.EventDate, u.EventTime, u.Location FROM upcoming_events u, upcoming_events_reg ur WHERE u.EventID=ur.EventID and ur.UserID='$uid' ";
+       $enr_result = mysqli_query($conn, $enr_query);
+       $enr_count = mysqli_num_rows($enr_result);
+       if($enr_count != 0){
+       	 echo '<table>';
+       	 echo "<tr><th>Event Name</th><th>Event Date</th><th>Time</th><th>Location</th></tr>" ;
+       	 while ($row = mysqli_fetch_assoc($enr_result)){
+       	 	echo "<tr><td>". $row['EventName'] . "</td><td>". $row['EventDate']."</td><td>".$row['EventTime']."</td><td>".$row['Location'] . "</td></tr>";
+       	 }
+       	 
+       	 echo '</table>';
+       }else{
+       	echo "<h4>No Enrollments found.</h4>";
+       }
+       ?>
        </section>
      
        <section id="event" class="hidden">

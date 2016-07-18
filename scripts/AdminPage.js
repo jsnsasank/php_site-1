@@ -191,14 +191,16 @@ $(document).ready(function() {
 		url: "scripts/addEvent.php",
 		type: "POST",
 		data: {'name':ename,'date':edate,'time': etime,'location':elocation,'desc':edesc,'lead':elead,'leadname':eleadname},
-		success:function(eventdata){
-			if(eventdata == "successful"){
-				$('#eventstatus').text("New event Succssfully created ; Lead Volunteer is : "+eleadname);
-				$('#neweventform').find('input:text').val(''); 
-			}else{
-				$('#eventstatus').html("<span style='color:red'>DB Error.Contact site Admin</span>");
-				console.log(eventdata);
-			}
+		success:function(json){
+			$.each(json,function(i,item){
+				if(item == "successful"){
+					$('#eventstatus').text("New event Succssfully created and Uniq Trees are allocated; Lead Volunteer is : "+eleadname);
+					$('#neweventform').find('input:text').val(''); 
+				}else{
+					$('#eventstatus').html("<span style='color:red'>DB Error: "+item+"</span>");
+				}
+			
+			})
 		},
 		error: function(xhr,desc,err){
 		  console.log("failed with error : " + xhr + "\n"+err);
