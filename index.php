@@ -27,13 +27,8 @@ works with municipal governments, state agencies and, in some cases, private lan
 trees. All trees are funded through donations and are planted by volunteers</p>
        
         <h2>Learn About more PlantTree <a href="AboutPlanetTree.php">..more</a>.</h2>
-         <h2>Browser Compatibility</h2>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 9</li>
-          <li>FireFox 25</li>
-          <li>Google Chrome 31</li>
-        </ul>
+         <h2>Coming more data soon.....</h2>
+       
       </div>
     </div>
     <div id="content_footer"></div>

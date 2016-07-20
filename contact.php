@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -7,6 +8,25 @@ session_start();
 <head>
   <title>PlanetTrees - contact us</title>
     <link rel="stylesheet" type="text/css" href="style/style.css" />
+     <script type="text/javascript" src="scripts/jquery.min.js"> </script>
+       <script type="text/javascript" >
+    $(document).ready(function(){
+    	$('#cform').on('submit', function(e) {
+
+      e.preventDefault();
+      var name  = $('#custname').val().trim();
+      var email = $('#custemail').val().trim();
+      var mesg  = $('#custmesg').val().trim();
+      console.log(mesg);
+      if(name.length == 0 || email.length == 0 || mesg.length == 0 ){
+         $('#disp').html("<sapn style='color:red'>Please Fill All the Details</span>");
+         return false;
+      }else{
+		$('#disp').html("Thank You : <span style='color:green'>"+name+" </span>For the Feedback!!");
+          }
+     }); 
+   	});
+     </script>
 </head>
 
 <body>
@@ -18,14 +38,31 @@ session_start();
       <div id="content">
         <!-- insert the page content here -->
         <h1>Contact Us</h1>
-        <p>Below is an example of how a contact form might look with this template:</p>       
-          <div class="form_settings">
-            <p><span>Name</span><input class="contact" type="text" name="your_name" value="" /></p>
-            <p><span>Email Address</span><input class="contact" type="text" name="your_email" value="" /></p>
-            <p><span>Message</span><textarea class="contact textarea" rows="8" cols="50" name="your_enquiry"></textarea></p>
-            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="submit" /></p>
-          </div>       
-        <p><br /><br />NOTE: A contact form such as this would require some way of emailing the input to an email address.</p>
+        <p>Please feel free to contact us for further information or questions</p>       
+         <form method="post" class="anil-form  anil-form-aligned" id="cform">
+       <fieldset>
+      
+        <div class="pure-control-group">
+            <label>Name : </label>
+            <input id="custname" name="custname" type="text" placeholder="Your Name" required>
+        </div>
+
+        <div class="pure-control-group">
+            <label>Email : </label>
+            <input id="custemail" name="custemail" type="text" placeholder="somone@ucmo.edu" required>
+        </div>
+		
+
+        <div class="pure-control-group">
+            <label>Message :</label>
+            <textarea id="custmesg" name="custmsg" rows='12' cols="42" placeholder="Please type the message.." required ></textarea>
+        </div>
+		 
+	  <button id="saveEvent" name="contact_form_submit" type="submit" class="anil-button anil-button-primary">Submit Comments</button>
+	  </fieldset>
+	  </form>     
+	<br/>
+        <h3 id="disp"> </h3>
       </div>
     </div>
     <div id="content_footer"></div>

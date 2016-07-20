@@ -152,11 +152,6 @@ you can take pride in helping to transform our urban landscapes.
         ?>
        <p class="para1">would like to donate more, Please visit our <a href="donate.php">donations</a> page</p>
        
-       <p class="para1">
-       Search by tree identifier -- In progress
-       </p>
-       
-       
        <h4>Enrolled Events :</h4>
        <p class="para1">Please check your enrolled  events. Please visit our 
        <a href="gallery.php">gallery</a> page for the pictures of the events

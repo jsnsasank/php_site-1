@@ -90,7 +90,7 @@ if(!isset($_SESSION['username'])){
       echo "<tr>";
       echo '<td>' . $drow['Name'] . '</td>';
       echo '<td>' . $drow['TransactionDate'] . '</td>';
-      echo '<td>' . $drow['Amount'] . '</td>';
+      echo '<td>$' . $drow['Amount'] . '</td>';
       echo "</tr>";
     }
     

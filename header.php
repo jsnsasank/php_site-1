@@ -41,7 +41,6 @@ window.addEventListener("load",dynamicClass,false);
 			<div class="dropdown-content">
 			 ' ?>
 			<a href="<?php if($_SESSION['UserRole'] == "Admin"){echo "AdminDashBoard.php";}else{echo "UserDashBoard.php";}?>">My Dashboard</a>
-			<a href="<?php if($_SESSION['UserRole'] == "Admin"){echo "AdminDashBoard.php#editprofile";}else{echo "UserDashBoard.php#editprofile";}?>">Edit My profile</a>
 			<a href="logout.php">Logout</a>
 			<?php echo " 
 			</div>

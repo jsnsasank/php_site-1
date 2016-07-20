@@ -1,3 +1,6 @@
+<script type="text/javascript" src="scripts/jquery.min.js"> </script>  
+<script type="text/javascript" src="scripts/treeid.js"></script>
+
 <div id="sidebar_container">
         <div class="sidebar">
           <div class="sidebar_top"></div>
@@ -42,12 +45,19 @@ Grand Finale Tree Planting</li><br><br>
           <div class="sidebar_top"></div>
           <div class="sidebar_item">
             <h3>Search Plant</h3>
-            <form method="post" action="#" id="search_form">
+            <div id="search_form">
               <p>
-                <input class="search" type="text" name="search_field" placeholder="Enter Tree identifier...." />
-                <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+                <input id="searchinput" class="search" type="text" name="search_field" placeholder="Enter Tree identifier...." />
+                <input id="searchtree" name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
               </p>
-            </form>
+              <span id="iderror" style="color:red"></span>
+            </div>
+       <div class="messagepop pop">
+        <div id="searchResult"></div>
+        <br>
+       <button class="close">Close</button>
+ 
+      </div>
           </div>
           <div class="sidebar_base"></div>
         </div>
@@ -57,10 +67,10 @@ Grand Finale Tree Planting</li><br><br>
           <div class="sidebar_item">
             <h3>Useful Links</h3>
             <ul>
-              <li><a href="#">link 1</a></li>
-              <li><a href="#">link 2</a></li>
-              <li><a href="#">link 3</a></li>
-              <li><a href="#">link 4</a></li>
+              <li><a href="login.php">Login</a></li>
+              <li><a href="register.php">Register</a></li>
+              <li><a href="donate.php">Contribute</a></li>
+              <li><a href="gallery.php">Gallery</a></li>
             </ul>
           </div>
           <div class="sidebar_base"></div>

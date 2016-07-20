@@ -199,7 +199,7 @@ $(document).ready(function(){
 		search_span.text('');
 		var treeid = $('#rqsearch').val();
 		if(treeid.length == 0){
-			search_span.text('Pls Enter tree Identifier');
+			search_span.text('Pls Enter Request Id');
 			return false;
 		}
 		var rexp = /^[RQ][0-9A-Z]+$/;

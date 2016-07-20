@@ -7,29 +7,14 @@ session_start();
 <head>
   <title>PlanetTrees - Gallery</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script type="text/javascript" src="scripts/jquery.min.js"> </script>  
   <style>
-  div.img {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
+.imgclass {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
 }
-
-div.img:hover {
-    border: 1px solid #777;
-background-color: pink;
-
-}
-
-div.img img {
-    width: 100%;
-    height: auto;
-}
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}</style>
+</style>
   
 </head>
 
@@ -43,69 +28,25 @@ div.desc {
         <!-- insert the page content here -->
         <h1>Image Gallery</h1>
         <p> Below images are taken at various planting events </p>
-        
-        <div class="img">
-  <a target="_blank" href="style/image-gal/img1.jpg">
-    <img src="style/image-gal/img1.jpg" alt="Trolltunga Norway" width="300" height="200">
-  </a>
-  <div class="desc">@Event at Warrensburgs Campus</div>
-</div>
+ <!-- Gallery  start -->
+ <div class="gal">
 
-<div class="img">
-  <a target="_blank" href="style/image-gal/img2.jpg">
-    <img src="style/image-gal/img2.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Warrensburgs Campus</div>
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img2.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img3.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img6.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img7.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img8.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img9.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img10.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img1.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img11.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img13.jpg" alt="" />
+ <img width="200" height="200" class="imgclass" src="style/image-gal/img14.jpg" alt="" />
+   
 </div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img3.jpg">
-    <img src="style/image-gal/img3.jpg" alt="@ Warrensburg Campus" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Warrensburgs Campus</div>
-</div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img6.jpg">
-    <img src="style/image-gal/img6.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Lee's Summit Campus</div>
-</div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img7.jpg">
-    <img src="style/image-gal/img7.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Warrensburgs Campus</div>
-</div>
-
-<div class="img">
-  <a target="_blank" href="style/image-gal/img8.jpg">
-    <img src="style/image-gal/img8.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Warrensburgs Campus</div>
-</div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img9.jpg">
-    <img src="style/image-gal/img9.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Lee's Summit Campus</div>
-</div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img10.jpg">
-    <img src="style/image-gal/img10.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Lee's Summit Campus</div>
-</div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img11.jpg">
-    <img src="style/image-gal/img11.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Lee's Summit Campus</div>
-</div>
-<div class="img">
-  <a target="_blank" href="style/image-gal/img5.jpg">
-    <img src="style/image-gal/img5.jpg" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">@Event at Lee's Summit Campus</div>
-</div>
+  
+  
+  <!-- Gallery end -->
 
       </div>
     </div>
