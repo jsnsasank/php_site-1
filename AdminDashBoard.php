@@ -51,7 +51,7 @@ if(!isset($_SESSION['username'])){
      <label>Type</label>
     <select id="req" class="middle"> 
     <option value="" disabled selected>ALL</option>
-    <option value="" >pending</option>
+    <option value="" >completed</option>
     <option value="" >unscheduled</option>
     </select>
        <div id="req_result">

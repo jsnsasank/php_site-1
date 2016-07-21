@@ -5,8 +5,8 @@ $status 	= test_input($_POST['status']);
 $data2		= "";
 
 $query = "select reqID, reqDate, Location, species, quantity, comments,status,reqUID,u.UserName from plant_tree_req p,users u where p.reqUID=u.userID order by reqdate";
-if ($status == "pending"){
-	$query = "select reqID, reqDate, Location, species, quantity, comments,status,reqUID,u.UserName from plant_tree_req p,users u where p.reqUID=u.userID and status='pending' order by reqdate";
+if ($status == "completed"){
+	$query = "select reqID, reqDate, Location, species, quantity, comments,status,reqUID,u.UserName from plant_tree_req p,users u where p.reqUID=u.userID and status='completed' order by reqdate";
 }
 if ($status == "unscheduled"){ 
 	$query = "select reqID, reqDate, Location, species, quantity, comments,status,reqUID,u.UserName from plant_tree_req p,users u where p.reqUID=u.userID and status='unscheduled' order by reqdate";
