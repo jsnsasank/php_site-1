@@ -1,12 +1,8 @@
 
 <?php 
 session_start(); 
-?>
-
-<?php
-require ("scripts/DBcontrol.php");
 if(isset($_POST['register'])){
-
+require ("scripts/DBcontrol.php");
 $uname = strip_tags($_POST['username']);
 $password = strip_tags($_POST['password']);
 

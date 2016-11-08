@@ -360,7 +360,7 @@ table tr td
   border-top: 1px solid #FFF;}
 tr:hover {background-color: #ffffff}
 
- .anil-button {
+ .pasha-button {
     font-family: inherit;
     font-size: 100%;
     padding: 0.5em 1em;
@@ -373,9 +373,9 @@ tr:hover {background-color: #ffffff}
     border-radius: 2px;
 }
 
-.anil-button-hover,
-.anil-button:hover,
-.anil-button:focus {
+.pasha-button-hover,
+.pasha-button:hover,
+.pasha-button:focus {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
     background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
@@ -383,20 +383,20 @@ tr:hover {background-color: #ffffff}
     background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
     background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
 }
-.anil-button:focus {
+.pasha-button:focus {
     outline: 0;
 }
-.anil-button-active,
-.anil-button:active {
+.pasha-button-active,
+.pasha-button:active {
     box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
     border-color: #000\9;
 }
 
-.anil-button[disabled],
-.anil-button-disabled,
-.anil-button-disabled:hover,
-.anil-button-disabled:focus,
-.anil-button-disabled:active {
+.pasha-button[disabled],
+.pasha-button-disabled,
+.pasha-button-disabled:hover,
+.pasha-button-disabled:focus,
+.pasha-button-disabled:active {
     border: none;
     background-image: none;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -408,40 +408,40 @@ tr:hover {background-color: #ffffff}
     box-shadow: none;
 }
 
-.anil-button-hidden {
+.pasha-button-hidden {
     display: none;
 }
 
 /* Firefox: Get rid of the inner focus border */
-.anil-button::-moz-focus-inner{
+.pasha-button::-moz-focus-inner{
     padding: 0;
     border: 0;
 }
 
-.anil-button-primary,
-.anil-button-selected,
-a.anil-button-primary,
-a.anil-button-selected {
+.pasha-button-primary,
+.pasha-button-selected,
+a.pasha-button-primary,
+a.pasha-button-selected {
     background-color: rgb(0, 120, 231);
     color: #fff;
 }
   
-.anil-form input[type="text"],
-.anil-form input[type="password"],
-.anil-form input[type="email"],
-.anil-form input[type="url"],
-.anil-form input[type="date"],
-.anil-form input[type="month"],
-.anil-form input[type="time"],
-.anil-form input[type="datetime"],
-.anil-form input[type="datetime-local"],
-.anil-form input[type="week"],
-.anil-form input[type="number"],
-.anil-form input[type="search"],
-.anil-form input[type="tel"],
-.anil-form input[type="color"],
-.anil-form select,
-.anil-form textarea {
+.pasha-form input[type="text"],
+.pasha-form input[type="password"],
+.pasha-form input[type="email"],
+.pasha-form input[type="url"],
+.pasha-form input[type="date"],
+.pasha-form input[type="month"],
+.pasha-form input[type="time"],
+.pasha-form input[type="datetime"],
+.pasha-form input[type="datetime-local"],
+.pasha-form input[type="week"],
+.pasha-form input[type="number"],
+.pasha-form input[type="search"],
+.pasha-form input[type="tel"],
+.pasha-form input[type="color"],
+.pasha-form select,
+.pasha-form textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
     border: 1px solid #ccc;
@@ -452,112 +452,112 @@ a.anil-button-selected {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.anil-form input[type="color"] {
+.pasha-form input[type="color"] {
     padding: 0.2em 0.5em;
 }
-.anil-form input[type="text"]:focus,
-.anil-form input[type="password"]:focus,
-.anil-form input[type="email"]:focus,
-.anil-form input[type="url"]:focus,
-.anil-form input[type="date"]:focus,
-.anil-form input[type="month"]:focus,
-.anil-form input[type="time"]:focus,
-.anil-form input[type="datetime"]:focus,
-.anil-form input[type="datetime-local"]:focus,
-.anil-form input[type="week"]:focus,
-.anil-form input[type="number"]:focus,
-.anil-form input[type="search"]:focus,
-.anil-form input[type="tel"]:focus,
-.anil-form input[type="color"]:focus,
-.anil-form select:focus,
-.anil-form textarea:focus {
+.pasha-form input[type="text"]:focus,
+.pasha-form input[type="password"]:focus,
+.pasha-form input[type="email"]:focus,
+.pasha-form input[type="url"]:focus,
+.pasha-form input[type="date"]:focus,
+.pasha-form input[type="month"]:focus,
+.pasha-form input[type="time"]:focus,
+.pasha-form input[type="datetime"]:focus,
+.pasha-form input[type="datetime-local"]:focus,
+.pasha-form input[type="week"]:focus,
+.pasha-form input[type="number"]:focus,
+.pasha-form input[type="search"]:focus,
+.pasha-form input[type="tel"]:focus,
+.pasha-form input[type="color"]:focus,
+.pasha-form select:focus,
+.pasha-form textarea:focus {
     outline: 0;
     border-color: #129FEA;
 }
 
-.anil-form input[type="radio"]:focus,
-.anil-form input[type="checkbox"]:focus {
+.pasha-form input[type="radio"]:focus,
+.pasha-form input[type="checkbox"]:focus {
     outline: thin solid #129FEA;
     outline: 1px auto #129FEA;
 }
-.anil-form .anil-checkbox,
-.anil-form .anil-radio {
+.pasha-form .pasha-checkbox,
+.pasha-form .pasha-radio {
     margin: 0.5em 0;
     display: block;
 }
 
-.anil-form input:focus:invalid,
-.anil-form textarea:focus:invalid,
-.anil-form select:focus:invalid {
+.pasha-form input:focus:invalid,
+.pasha-form textarea:focus:invalid,
+.pasha-form select:focus:invalid {
     color: #b94a48;
     border-color: #e9322d;
 }
 
-.anil-form select {
+.pasha-form select {
     /* Normalizes the height; padding is not sufficient. */
     height: 2.25em;
     border: 1px solid #ccc;
     background-color: white;
 }
 
-.anil-form-stacked input[type="text"],
-.anil-form-stacked input[type="password"],
-.anil-form-stacked input[type="email"],
-.anil-form-stacked input[type="url"],
-.anil-form-stacked input[type="date"],
-.anil-form-stacked input[type="month"],
-.anil-form-stacked input[type="time"],
-.anil-form-stacked input[type="datetime"],
-.anil-form-stacked input[type="datetime-local"],
-.anil-form-stacked input[type="week"],
-.anil-form-stacked input[type="number"],
-.anil-form-stacked input[type="search"],
-.anil-form-stacked input[type="tel"],
-.anil-form-stacked input[type="color"],
-.anil-form-stacked input[type="file"],
-.anil-form-stacked select,
-.anil-form-stacked label,
-.anil-form-stacked textarea {
+.pasha-form-stacked input[type="text"],
+.pasha-form-stacked input[type="password"],
+.pasha-form-stacked input[type="email"],
+.pasha-form-stacked input[type="url"],
+.pasha-form-stacked input[type="date"],
+.pasha-form-stacked input[type="month"],
+.pasha-form-stacked input[type="time"],
+.pasha-form-stacked input[type="datetime"],
+.pasha-form-stacked input[type="datetime-local"],
+.pasha-form-stacked input[type="week"],
+.pasha-form-stacked input[type="number"],
+.pasha-form-stacked input[type="search"],
+.pasha-form-stacked input[type="tel"],
+.pasha-form-stacked input[type="color"],
+.pasha-form-stacked input[type="file"],
+.pasha-form-stacked select,
+.pasha-form-stacked label,
+.pasha-form-stacked textarea {
     display: block;
     margin: 0.25em 0;
 }
-.anil-form-aligned input,
-.anil-form-aligned textarea,
-.anil-form-aligned select,
+.pasha-form-aligned input,
+.pasha-form-aligned textarea,
+.pasha-form-aligned select,
 
-.anil-form-message-inline {
+.pasha-form-message-inline {
     display: inline-block;
     *display: inline;
     *zoom: 1;
     vertical-align: middle;
 }
-.anil-form-aligned textarea {
+.pasha-form-aligned textarea {
     vertical-align: top;
 }
 
 /* Aligned Forms */
-.anil-form-aligned .pure-control-group {
+.pasha-form-aligned .pure-control-group {
     margin-bottom: 0.5em;
 }
-.anil-form-aligned .pure-control-group label {
+.pasha-form-aligned .pure-control-group label {
     text-align: right;
     display: inline-block;
     vertical-align: middle;
     width: 10em;
     margin: 0 1em 0 0;
 }
-.anil-form-aligned .pure-controls {
+.pasha-form-aligned .pure-controls {
     margin: 1.5em 0 0 11em;
 }
-.anil-form .pure-group button {
+.pasha-form .pure-group button {
     margin: 0.35em 0;
 }
-.anil-form fieldset {
+.pasha-form fieldset {
     margin: 0;
     padding: 0.35em 0 0.75em;
     border: 0;
 }
-.anil-form .pure-group fieldset {
+.pasha-form .pure-group fieldset {
     margin-bottom: 10px;
 }
 
