@@ -65,7 +65,7 @@ if(isset($_SESSION['id'])){
      <div id="content">
       
 <br>
-  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="login" name="login_page" class="anil-form  anil-form-aligned" onsubmit="return login_validate(this)">
+  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="login" name="login_page" class="pasha-form  pasha-form-aligned" onsubmit="return login_validate(this)">
        <fieldset>
         <h1>Login</h1>
         <p>Please enter your username and password</p>       
@@ -81,9 +81,9 @@ if(isset($_SESSION['id'])){
         </div>
       <br>
         <div class="pure-controls">
-        	<button type="reset" class="anil-button anil-button-primary">Reset</button>
+        	<button type="reset" class="pasha-button pasha-button-primary">Reset</button>
 
-           <button type="submit" name="login" class="anil-button anil-button-primary">Submit</button>
+           <button type="submit" name="login" class="pasha-button pasha-button-primary">Submit</button>
         </div><br>
 
     </fieldset>

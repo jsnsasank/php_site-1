@@ -56,7 +56,7 @@ if(!isset($_SESSION['username'])){
     </select>
        <div id="req_result">
        </div>
-     <input id="freetrees" type="button" value="See Availalbe Trees" class="anil-button anil-button-primary" />
+     <input id="freetrees" type="button" value="See Availalbe Trees" class="pasha-button pasha-button-primary" />
       <div id="freetree_result">
        </div>
        

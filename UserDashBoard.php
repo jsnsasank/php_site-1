@@ -74,7 +74,7 @@ if(!isset($_SESSION['username'])){
   }
 ?>
 <div id="neweventform" class="hidden">
-<form method="POST" class="anil-form  anil-form-aligned" >
+<form method="POST" class="pasha-form  pasha-form-aligned" >
        <fieldset>
        
       <h3> Update  Event : </h3>
@@ -108,7 +108,7 @@ if(!isset($_SESSION['username'])){
         </div>
        
       
-	  <button id="saveEvent" name="submit" type="button" class="anil-button anil-button-primary">Save Event</button>
+	  <button id="saveEvent" name="submit" type="button" class="pasha-button pasha-button-primary">Save Event</button>
 	 
 	   </fieldset>
 	  </form> 
@@ -251,7 +251,7 @@ you can take pride in helping to transform our urban landscapes.
       <p class='para1'>If you have requested for a planting tree previously. You can check the status of your request with confirmation number.
       The Request confirmation starts with RQ and contains only numbers and upper case letters 
       </p>
-      <form class="anil-form  anil-form-aligned" >  
+      <form class="pasha-form  pasha-form-aligned" >  
        <div class="pure-control-group">
           <label>Search Previous Requests : </label>
 	     <input id="rqsearch" type="text"  name="search_field" placeholder="Enter Tree identifier...." >
@@ -265,7 +265,7 @@ you can take pride in helping to transform our urban landscapes.
      
       <h2>Make a new Request for tree planting</h2>
       <p class='para1'>You can request for trees to be planted in a particular location.Please submit the following form</p>
-      <form class="anil-form  anil-form-aligned" >
+      <form class="pasha-form  pasha-form-aligned" >
        <fieldset>
        <p id="req-status"></p>
         <div class="pure-control-group">
@@ -292,7 +292,7 @@ you can take pride in helping to transform our urban landscapes.
 		  </div>
 		 		 
 	  </fieldset>
-	  <button id="req-button" class="anil-button anil-button-primary"> Submit Request </button>
+	  <button id="req-button" class="pasha-button pasha-button-primary"> Submit Request </button>
 	  </form>
       </section>
        <h3 id="reqcode"> </h3>

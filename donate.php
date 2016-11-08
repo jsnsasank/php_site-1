@@ -21,7 +21,7 @@ session_start();
         <h1>Make A Contribution</h1>
 		<h5 id="Addr_result"></h5>
 		 <h4>Please Enter your name and Billing Address</h4>
-        <form method="POST" action="processPayment.php" class="anil-form  anil-form-aligned" onsubmit = "return validate(this)">
+        <form method="POST" action="processPayment.php" class="pasha-form  pasha-form-aligned" onsubmit = "return validate(this)">
        <fieldset>
         <div class="pure-control-group">
             <label for="name">Contributor Name : </label>
@@ -82,7 +82,7 @@ session_start();
 			 <input id="cbCT" name="cbCT" type="number" autocomplete="off"  min="1"> 
 		  </div>
 		 
-	  <button id="payment" name="submit" type="submit" class="anil-button anil-button-primary">Proceed to Payment</button>
+	  <button id="payment" name="submit" type="submit" class="pasha-button pasha-button-primary">Proceed to Payment</button>
 	  </fieldset>
 	  </form>
 	  </div>

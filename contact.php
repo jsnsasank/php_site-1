@@ -39,7 +39,7 @@ session_start();
         <!-- insert the page content here -->
         <h1>Contact Us</h1>
         <p>Please feel free to contact us for further information or questions</p>       
-         <form method="post" class="anil-form  anil-form-aligned" id="cform">
+         <form method="post" class="pasha-form  pasha-form-aligned" id="cform">
        <fieldset>
       
         <div class="pure-control-group">
@@ -58,7 +58,7 @@ session_start();
             <textarea id="custmesg" name="custmsg" rows='12' cols="42" placeholder="Please type the message.." required ></textarea>
         </div>
 		 
-	  <button id="saveEvent" name="contact_form_submit" type="submit" class="anil-button anil-button-primary">Submit Comments</button>
+	  <button id="saveEvent" name="contact_form_submit" type="submit" class="pasha-button pasha-button-primary">Submit Comments</button>
 	  </fieldset>
 	  </form>     
 	<br/>

@@ -48,7 +48,7 @@ if(!isset($_SESSION['username'])){
      <div id='w'>
      <h1>Create New Event </h1>
       <span style="color:red" id="eventerror"></span>
-     <form method="POST" class="anil-form  anil-form-aligned" id="neweventform">
+     <form method="POST" class="pasha-form  pasha-form-aligned" id="neweventform">
        <fieldset>
       
         <div class="pure-control-group">
@@ -90,7 +90,7 @@ if(!isset($_SESSION['username'])){
             </select>
         </div>
 		 
-	  <button id="saveEvent" name="submit" type="button" class="anil-button anil-button-primary">Save Event</button>
+	  <button id="saveEvent" name="submit" type="button" class="pasha-button pasha-button-primary">Save Event</button>
 	  </fieldset>
 	  </form>
 	  <br/>

@@ -137,7 +137,7 @@ function test_input($data) {
     <br><br>
     <p>
 	<span>*By clicking this button your card will be charged</span><br> 
-      <input id="ccpay" type="button" value="Complete Donation" class="anil-button anil-button-primary">
+      <input id="ccpay" type="button" value="Complete Donation" class="pasha-button pasha-button-primary">
       </p>
     <!--  </form> -->
     <p class="showprogress" id="paymentinprogress">

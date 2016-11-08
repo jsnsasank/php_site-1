@@ -23,7 +23,7 @@ session_start();
    
 <h5 id="register_valid"> </h5><br>
 
-	<form class="anil-form  anil-form-aligned" onsubmit="return register_validate(this)">
+	<form class="pasha-form  pasha-form-aligned" onsubmit="return register_validate(this)">
        <fieldset>
               
         <div class="pure-control-group">
@@ -68,8 +68,8 @@ session_start();
       
         <div class="pure-controls">
             
-			<button type="reset" class="anil-button anil-button-primary">Reset</button>
-            <button type="submit" class="anil-button anil-button-primary">Update</button>
+			<button type="reset" class="pasha-button pasha-button-primary">Reset</button>
+            <button type="submit" class="pasha-button pasha-button-primary">Update</button>
             
         </div>
     </fieldset>

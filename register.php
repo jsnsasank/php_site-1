@@ -70,7 +70,7 @@ mysqli_close($conn);
    
 <h5 id="register_valid"> </h5><br>
 
-	<form name="register_form" class="anil-form  anil-form-aligned" onsubmit="return register_validate(this)" method="post" action="">
+	<form name="register_form" class="pasha-form  pasha-form-aligned" onsubmit="return register_validate(this)" method="post" action="">
        <fieldset>
                <div class="pure-control-group">
             <label for="username">Username* : </label>
@@ -88,8 +88,8 @@ mysqli_close($conn);
         
           <div class="pure-controls">
        
-			<button type="reset" class="anil-button anil-button-primary">Reset</button>
-            <button id="regbtn" type="submit" name="register" class="anil-button anil-button-primary">Register</button>
+			<button type="reset" class="pasha-button pasha-button-primary">Reset</button>
+            <button id="regbtn" type="submit" name="register" class="pasha-button pasha-button-primary">Register</button>
             
         </div>
    <br> <div class="pure-control-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already member?<a href="login.php"><strong> Login here</strong></a></div>

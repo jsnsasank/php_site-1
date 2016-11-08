@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "welcome";
-$database = "anil_asp";
+$database = "pasha_asp";
 
 try{
   $conn = mysqli_connect($host,$user,$password,$database);
